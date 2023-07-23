@@ -1,10 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { ThemeProvider } from 'styled-components'
 
-import { Button } from './'
+import { baseTheme } from '../../../styles/theme/theme'
+
+import { Button } from './button'
+
+const withThemeProvider = (Story, context) => {
+  return (
+    <ThemeProvider theme={baseTheme}>
+      <Story {...context} />
+    </ThemeProvider>
+  )
+}
 
 const meta = {
   title: 'Components/Button',
   component: Button,
+  decorators: [withThemeProvider],
+  parameters: {
+    layout: 'centered',
+  },
   tags: ['autoDocs'],
   argTypes: {
     variant: {
