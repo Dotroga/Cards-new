@@ -1,5 +1,3 @@
-import { StrictMode } from 'react'
-
 import { createRoot } from 'react-dom/client'
 import { ThemeProvider } from 'styled-components'
 
@@ -8,10 +6,8 @@ import { GlobalStyled } from './styles/globalStyled'
 import { baseTheme } from './styles/theme/theme'
 
 createRoot(document.getElementById('root') as HTMLElement).render(
-  <StrictMode>
-    <ThemeProvider theme={baseTheme}>
-      <GlobalStyled />
-      <App />
-    </ThemeProvider>
-  </StrictMode>
+  <ThemeProvider theme={baseTheme}>
+    <GlobalStyled />
+    <App />
+  </ThemeProvider>
 )
