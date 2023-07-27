@@ -1,12 +1,20 @@
+import { LogOutIcon } from './components/icons/logOut.tsx'
 import { Button } from './components/ui/button/button'
+import { Typography } from './components/ui/typography/typography.tsx'
 
 export const App = () => {
   return (
     <>
-      <Button variant={'primary'}>Hello</Button>
-      <Button variant={'secondary'}>Hello</Button>
-      <Button variant={'tertiary'}>Hello</Button>
-      <Button variant={'link'}>Hello</Button>
+      <Button variant={'primary'}>
+        <>
+          <LogOutIcon />
+          Primary
+        </>
+      </Button>
+      <Button variant={'secondary'}>Secondary</Button>
+      <Button variant={'tertiary'}>Tertiary</Button>
+      <Button variant={'link'}>Link</Button>
+      <Typography as={'link2'}>Hello</Typography>
     </>
   )
 }

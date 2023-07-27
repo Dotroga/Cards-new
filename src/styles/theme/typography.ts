@@ -1,9 +1,8 @@
 export const typography = {
-  fontFamilyPrimary: 'Roboto' | 'sans-serif',
   // line heights
-  lineHeight_S: '16px',
-  lineHeight_M: '24px',
-  lineHeight_L: '36px',
+  lineHeight_S: '1rem',
+  lineHeight_M: '1.5rem',
+  lineHeight_L: '2.25rem',
   // font sizeS
   fontSize_XS: '0.75rem',
   fontSize_S: '0.875rem',

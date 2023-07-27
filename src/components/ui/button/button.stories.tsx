@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 
 import { GlobalStyled } from '../../../styles/globalStyled.ts'
 import { baseTheme } from '../../../styles/theme/theme'
+import { LogOutIcon } from '../../icons/logOut.tsx'
 
 import { Button } from './button'
 
@@ -22,7 +23,7 @@ const meta = {
   title: 'Components/Button',
   component: Button,
   decorators: [withThemeProvider],
-  tags: ['autoDocs'],
+  tags: ['autodocs'],
   argTypes: {
     variant: {
       options: ['primary', 'secondary', 'tertiary', 'link'],
@@ -45,7 +46,12 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     variant: 'secondary',
-    children: 'Secondary Button',
+    children: (
+      <>
+        <LogOutIcon />
+        Secondary Button
+      </>
+    ),
     disabled: false,
   },
 }
