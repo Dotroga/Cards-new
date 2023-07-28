@@ -1,20 +1,23 @@
-import { ElementType, FC, JSXElementConstructor } from 'react'
+import { ElementType, FC } from 'react'
 
-import styled from 'styled-components'
+import { TypographyStaled } from './typography.styled.ts'
 
 type TypographyPropsType = {
   as: keyof typeof components
   children?: React.ReactNode
 }
-export const Typography: FC<TypographyPropsType> = ({ as, ...rest }) => {
-  const Component: ElementType = components[as] || 'p'
-
-  return <TypographyStaled as={Component} {...rest} />
+export type TypographyStaledType = {
+  component: keyof typeof components
 }
 
-const TypographyStaled = styled.p<TypographyPropsType>``
+export const Typography: FC<TypographyPropsType> = ({ as, ...rest }) => {
+  const Component: ElementType = components[as] as ElementType
+
+  return <TypographyStaled as={Component} component={as} {...rest} />
+}
 
 const components = {
+  large: 'h1',
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
@@ -28,17 +31,3 @@ const components = {
   link: 'a',
   link2: 'a',
 }
-
-export type ReactTag = keyof JSX.IntrinsicElements | JSXElementConstructor<any>
-type Type =
-  | 'h2'
-  | 'h3'
-  | 'subtitle1'
-  | 'subtitle2'
-  | 'body1'
-  | 'body2'
-  | 'overline'
-  | 'caption'
-  | 'error'
-  | 'link'
-  | 'link2'

@@ -14,7 +14,7 @@ export const App = () => {
       <Button variant={'secondary'}>Secondary</Button>
       <Button variant={'tertiary'}>Tertiary</Button>
       <Button variant={'link'}>Link</Button>
-      <Typography as={'link2'}>Hello</Typography>
+      <Typography as={'large'}>Hello</Typography>
     </>
   )
 }

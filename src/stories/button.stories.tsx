@@ -1,23 +1,9 @@
-import { ComponentType } from 'react'
-
 import type { Meta, StoryObj } from '@storybook/react'
-import { ThemeProvider } from 'styled-components'
 
-import { GlobalStyled } from '../../../styles/globalStyled.ts'
-import { baseTheme } from '../../../styles/theme/theme'
-import { LogOutIcon } from '../../icons/logOut.tsx'
+import { LogOutIcon } from '../components/icons/logOut.tsx'
+import { Button } from '../components/ui/button/button.tsx'
 
-import { Button } from './button'
-
-type Context = { kind: string }
-const withThemeProvider = (Story: ComponentType<Context>, context: Context) => {
-  return (
-    <ThemeProvider theme={baseTheme}>
-      <GlobalStyled />
-      <Story {...context} />
-    </ThemeProvider>
-  )
-}
+import { withThemeProvider } from './decorators.tsx'
 
 const meta = {
   title: 'Components/Button',
