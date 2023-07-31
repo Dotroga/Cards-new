@@ -22,6 +22,6 @@ export const Default = {
 
   args: {
     children: 'Click here',
-    disabled: false,
+    disabled: true,
   },
 }
