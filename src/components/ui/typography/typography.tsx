@@ -3,6 +3,7 @@ import { ElementType, FC } from 'react'
 import { TypographyStaled } from './typography.styled.ts'
 
 type TypographyPropsType = {
+  className?: string
   as: keyof typeof components
   children?: React.ReactNode
 }

@@ -22,7 +22,17 @@ export const ButtonStyled = styled.button<ButtonProps>(props => {
     background: none;
     text-decoration: none;
     transition: 0.1s;
+    background: ${colors.accent_500};
+    box-shadow: ${colors.accent_900};
+    &:hover {
+      background: ${colors.accent_300};
+    }
+    &:active {
+      background: ${colors.accent_700};
+    }
     &:disabled {
+      color: ${colors.light_900};
+      background: ${colors.accent_900};
       cursor: initial;
     }
     ${variant === 'primary' &&

@@ -47,8 +47,8 @@ export const CheckboxWrapper = styled.div<DefaultInputPropsType>(props => {
     }
 
     svg {
-      width: 24px;
-      height: 24px;
+      width: 1.5rem;
+      height: 1.5rem;
       position: absolute;
       fill: ${disabled ? colors.dark_100 : colors.light_100};
       stroke: ${disabled ? colors.dark_100 : colors.light_100};
@@ -61,7 +61,7 @@ export const CheckboxWrapper = styled.div<DefaultInputPropsType>(props => {
       opacity: 0;
       transition: opacity 0.2s ease;
     }
-
+    
     .first {
       opacity: ${checked ? 1 : 0};
     }
