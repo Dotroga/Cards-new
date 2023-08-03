@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
 
-import { DefaultInputPropsType } from './checkbox.tsx'
+import { CheckboxPropsType } from '@/components'
 
-export const CheckboxWrapper = styled.div<DefaultInputPropsType>(props => {
+export const CheckboxStyled = styled.div<CheckboxPropsType>(props => {
   const colors = props.theme.colors
   const { checked, disabled } = props
 

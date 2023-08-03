@@ -1,16 +1,16 @@
 import { ChangeEvent, ComponentPropsWithoutRef, FC } from 'react'
 
-import { CheckboxWrapper } from './checkbox.styled.ts'
+import { CheckboxStyled } from '@/components'
 
-export type DefaultInputPropsType = Omit<ComponentPropsWithoutRef<'input'>, 'type'> & {
+export type CheckboxPropsType = Omit<ComponentPropsWithoutRef<'input'>, 'type'> & {
   onValueChange?: (checked: ChangeEvent) => void
 }
 
-export const Checkbox: FC<DefaultInputPropsType> = ({ children, onValueChange, ...restProps }) => {
+export const Checkbox: FC<CheckboxPropsType> = ({ children, onValueChange, ...restProps }) => {
   const { checked, disabled } = restProps
 
   return (
-    <CheckboxWrapper checked={checked} disabled={disabled}>
+    <CheckboxStyled checked={checked} disabled={disabled}>
       <label className="checkbox">
         <input type="checkbox" onChange={onValueChange} {...restProps} />
         <svg className="first" viewBox="0 0 24 24">
@@ -21,6 +21,6 @@ export const Checkbox: FC<DefaultInputPropsType> = ({ children, onValueChange, .
         </svg>
       </label>
       {children}
-    </CheckboxWrapper>
+    </CheckboxStyled>
   )
 }

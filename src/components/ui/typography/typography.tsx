@@ -28,7 +28,7 @@ const components = {
   body2: 'p',
   overline: 'p',
   caption: 'caption',
-  error: 'span',
+  error: 'p',
   link: 'a',
   link2: 'a',
 }

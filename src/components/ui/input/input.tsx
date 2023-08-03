@@ -2,7 +2,7 @@ import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
 import styled, { css } from 'styled-components'
 
-import { Typography } from '@/components/ui/typography/typography.tsx'
+import { Typography } from '@/components'
 
 export type PropsInputType = {
   name: string
@@ -24,7 +24,7 @@ export const Input = forwardRef<HTMLInputElement, PropsInputType>(
           {upperName}
         </Typography>
         <input name={name} ref={ref} onChange={handleChange} {...restProps} />
-        <div>{error}</div>
+        <Typography as="error">{error}</Typography>
       </WrapperInput>
     )
   }
@@ -37,17 +37,17 @@ const WrapperInput = styled.div<{
 
   return css`
     position: relative;
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus,
-    textarea:-webkit-autofill,
-    textarea:-webkit-autofill:hover,
-    textarea:-webkit-autofill:focus,
-    select:-webkit-autofill,
-    select:-webkit-autofill:hover,
-    select:-webkit-autofill:focus {
-      transition: background-color 5000s ease-in-out 0s;
-    }
+    //input:-webkit-autofill,
+    //input:-webkit-autofill:hover,
+    //input:-webkit-autofill:focus,
+    //textarea:-webkit-autofill,
+    //textarea:-webkit-autofill:hover,
+    //textarea:-webkit-autofill:focus,
+    //select:-webkit-autofill,
+    //select:-webkit-autofill:hover,
+    //select:-webkit-autofill:focus {
+    //  transition: background-color 5000s ease-in-out 0s;
+    //}
 
     input {
       outline: none;

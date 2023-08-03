@@ -16,11 +16,12 @@ export const TypographyStaled = styled.p<TypographyStaledType>(props => {
     lineHeight_M,
     lineHeight_S,
   } = props.theme.typography
-  const handler = (fontSize: string, fontWeight: string, lineHeight: string) => {
+  const handler = (fontSize: string, fontWeight: string, lineHeight: string, color?: string) => {
     return css`
       font-size: ${fontSize};
       font-weight: ${fontWeight};
       line-height: ${lineHeight};
+      color: ${color};
     `
   }
 
@@ -46,7 +47,7 @@ export const TypographyStaled = styled.p<TypographyStaledType>(props => {
     case 'caption':
       return handler(fontSize_XS, fontWeightRegular, lineHeight_S)
     case 'error':
-      return handler(fontSize_S, fontWeightBold, lineHeight_L)
+      return handler(fontSize_S, fontWeightRegular, lineHeight_M, props.theme.colors.danger_300)
     case 'link':
       return handler(fontSize_S, fontWeightRegular, lineHeight_M)
     case 'link2':
