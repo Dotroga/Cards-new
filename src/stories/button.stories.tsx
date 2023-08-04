@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { LogOutIcon } from '../components/icons/logOut.tsx'
-import { Button } from '../components/ui/button/button.tsx'
-
-import { withThemeProvider } from './decorators.tsx'
+import { Button, LogOutIcon } from '@/components'
+import { withThemeProvider } from '@/stories/decorators.tsx'
 
 const meta = {
   title: 'Components/Button',
