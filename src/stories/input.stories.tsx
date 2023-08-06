@@ -18,6 +18,29 @@ export const Default = {
 
   args: {
     name: 'input text',
+
+    disabled: false,
+  } as PropsInputType,
+}
+export const Password = {
+  render: (args: PropsInputType) => {
+    return <Input {...args} />
+  },
+
+  args: {
+    type: 'password',
+    name: 'Input text',
+    disabled: false,
+  } as PropsInputType,
+}
+
+export const Error = {
+  render: (args: PropsInputType) => {
+    return <Input {...args} />
+  },
+
+  args: {
+    name: 'Input text',
     error: 'Error',
     disabled: false,
   } as PropsInputType,

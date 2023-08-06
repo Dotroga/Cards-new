@@ -7,8 +7,8 @@ export const CheckboxStyled = styled.div<CheckboxPropsType>(props => {
   const { checked, disabled } = props
 
   return css`
+    width: 100%;
     display: flex;
-    padding: 0.375rem 0.5625rem 0.375rem 0.375rem;
     align-items: center;
     color: ${disabled ? colors.dark_100 : colors.light_100};;
 

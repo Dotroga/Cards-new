@@ -10,6 +10,7 @@ export const ButtonStyled = styled.button<ButtonProps>(props => {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
     gap: 0.625rem;
     padding: 0.375rem 1.75rem;
     border-radius: 0.25rem;
