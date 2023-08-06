@@ -31,12 +31,20 @@ export const LoginForm = () => {
         Remember me
       </ControlledCheckbox>
       <Button type="submit">Sign In</Button>
+      <Typography as={'body2'}>{`Don't have an account?`}</Typography>
+      <Typography className="signUpLink" as={'link'} href={'/'}>
+        Sign Up
+      </Typography>
     </Form>
   )
 }
 
 const Form = styled(Card)`
+  align-items: center;
   width: 420px;
   height: 528px;
-  padding: 40px;
+  padding: 33px 36px 29px 36px;
+  .signUpLink {
+    color: ${({ theme }) => theme.colors.accent_500};
+  }
 `
