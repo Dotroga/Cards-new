@@ -1,3 +1,5 @@
+import { FC } from 'react'
+
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
@@ -7,8 +9,11 @@ import { z } from 'zod'
 import { Button, Card, ControlledCheckbox, Input, loginSchema, Typography } from '@/components'
 
 type LoginFormSchema = z.infer<typeof loginSchema>
+type FormType<T> = {
+  onSubmit: (data: T) => void
+}
 
-export const LoginForm = () => {
+export const SignIn: FC<FormType<LoginFormSchema>> = ({ onSubmit }) => {
   const {
     register,
     handleSubmit,
@@ -17,9 +22,6 @@ export const LoginForm = () => {
   } = useForm<LoginFormSchema>({
     resolver: zodResolver(loginSchema),
   })
-  const onSubmit = (data: LoginFormSchema) => {
-    console.log(data)
-  }
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>

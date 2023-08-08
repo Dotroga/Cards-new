@@ -1,16 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { LoginForm } from '@/components/auth/login-form/login-form.tsx'
+import { SignIn } from '@/components'
 import { withThemeProvider } from '@/stories/decorators.tsx'
 
 const meta = {
-  title: 'Auth/LoginForm',
-  component: LoginForm,
+  title: 'Auth/SignIn',
+  component: SignIn,
   decorators: [withThemeProvider],
   tags: ['autodocs'],
-} satisfies Meta<typeof LoginForm>
+} satisfies Meta<typeof SignIn>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {}
+export const Default: Story = {
+  args: {
+    onSubmit: data => console.info(data),
+  },
+}
