@@ -2,9 +2,9 @@ import { useState } from 'react'
 
 import { Meta } from '@storybook/react'
 
-import { Checkbox } from '../components/ui/checkbox/checkbox.tsx'
+import { Checkbox } from './checkbox.tsx'
 
-import { withThemeProvider } from './decorators.tsx'
+import { withThemeProvider } from '@/stories/decorators.tsx'
 
 export default {
   title: 'Components/Checkbox',
