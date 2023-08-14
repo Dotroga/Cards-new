@@ -8,3 +8,4 @@ export const loginSchema = z.object({
     .min(3, 'Password cannot be shorter than 3 characters'),
   rememberMe: z.boolean().default(false),
 })
+5
