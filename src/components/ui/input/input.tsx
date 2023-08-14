@@ -24,6 +24,7 @@ export const Input = forwardRef<HTMLInputElement, PropsInputType>((props, ref) =
         {upperName}
       </Typography>
       <input
+        className={'input'}
         name={name}
         type={showPass ? 'text' : 'password'}
         ref={ref}

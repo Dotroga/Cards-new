@@ -49,7 +49,7 @@ export const WrapperInput = styled.div<{ error?: string; disabled?: boolean }>(p
     svg {
       position: absolute;
       top: 50%;
-      right: 10px;
+      right: 15px;
       cursor: ${disabled && 'initial'};
       fill: ${disabled ? colors.dark_300 : colors.light_100};
       transform: translate(0, -50%);
