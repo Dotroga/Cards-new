@@ -3,7 +3,7 @@ import { useState } from 'react'
 import type { Meta } from '@storybook/react'
 
 import { Eye } from '@/components'
-import { withThemeProvider } from '@/stories/decorators.tsx'
+import { withThemeProvider } from '@/utils/decorators.tsx'
 
 const meta = {
   title: 'Icons/Eye',

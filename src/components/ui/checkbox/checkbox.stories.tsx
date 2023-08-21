@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react'
 
 import { Checkbox } from './checkbox.tsx'
 
-import { withThemeProvider } from '@/stories/decorators.tsx'
+import { withThemeProvider } from '@/utils/decorators.tsx'
 
 export default {
   title: 'Components/Checkbox',

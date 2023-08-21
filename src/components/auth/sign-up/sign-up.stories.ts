@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { SignUp } from '@/components/auth/sign-up/sign-up.tsx'
-import { withThemeProvider } from '@/stories/decorators.tsx'
+import { withThemeProvider } from '@/utils/decorators.tsx'
 
 const meta = {
   title: 'Auth/SignUp',

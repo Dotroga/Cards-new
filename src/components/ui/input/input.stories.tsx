@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react'
 
 import { Input, PropsInputType } from './input.tsx'
 
-import { withThemeProvider } from '@/stories/decorators.tsx'
+import { withThemeProvider } from '@/utils/decorators.tsx'
 
 export default {
   title: 'Components/Input',
