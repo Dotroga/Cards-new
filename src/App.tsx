@@ -1,3 +1,9 @@
+import { Router } from '@/router.tsx'
+
 export const App = () => {
-  return <>Hello</>
+  return (
+    <div>
+      <Router />
+    </div>
+  )
 }
