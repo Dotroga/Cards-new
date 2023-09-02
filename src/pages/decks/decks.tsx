@@ -7,5 +7,5 @@ export const Decks = () => {
   if (isLoading) return <div>Loading...</div>
   console.log(data)
 
-  return <div>Decks</div>
+  return <div>Hello</div>
 }
