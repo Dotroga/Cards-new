@@ -1,8 +1,10 @@
 import { ComponentProps, ComponentPropsWithoutRef, FC } from 'react'
 
+import clsx from 'clsx'
 import { BiChevronUp } from 'react-icons/bi'
 
 import s from './table.module.scss'
+import { StyledTable } from './table.styled'
 
 import { Typography } from '@/components'
 import { Sort } from '@/services/common/types'
@@ -19,11 +21,7 @@ export const Head: FC<HeadProps> = props => {
   return <thead {...props} />
 }
 
-export type Column = {
-  title: string
-  key: string
-  sortable?: boolean
-}
+export type Column = { head; title: string; key: string; sortable?: boolean }
 export const Header: FC<
   Omit<
     HeadProps & {
@@ -75,19 +73,15 @@ export const Row: FC<RowProps> = props => {
   return <tr {...props} />
 }
 
-export type HeadCellProps = ComponentProps<'th'> & {
+export type HeadCellProps = ComponentPropsWithoutRef<'th'> & {
   sortable?: boolean
 }
 
-export const HeadCell: FC<HeadCellProps> = ({ className, children, sortable, ...rest }) => {
-  const classNames = {
-    headCell: clsx(className, s.headCell, sortable && s.sortable),
-  }
-
+export const HeadCell: FC<HeadCellProps> = ({ className, children, ...rest }) => {
   return (
-    <th className={classNames.headCell} {...rest}>
+    <StyledTable.Head {...rest}>
       <span>{children}</span>
-    </th>
+    </StyledTable.Head>
   )
 }
 
