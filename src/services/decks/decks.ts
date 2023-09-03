@@ -7,12 +7,23 @@ const decksApi = baseApi.injectEndpoints({
         query: args => {
           return { url: 'v1/decks', method: 'GET', params: args }
         },
+        providesTags: ['Decks'],
+      }),
+      createdDeck: builder.mutation<any, any>({
+        query: ({ name }) => {
+          return {
+            url: 'v1/decks',
+            method: 'POST',
+            body: { name },
+          }
+        },
+        invalidatesTags: ['Decks'],
       }),
     }
   },
 })
 
-export const { useGetDecksQuery, useLazyGetDecksQuery } = decksApi
+export const { useGetDecksQuery, useCreatedDeckMutation, useLazyGetDecksQuery } = decksApi
 
 export interface Pagination {
   totalPages: number
