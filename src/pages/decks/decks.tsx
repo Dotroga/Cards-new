@@ -1,8 +1,8 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 
-import { Input } from '@/components'
+import { Button, Input } from '@/components'
 import { Table } from '@/components/ui/table'
-import { useGetDecksQuery } from '@/services/decks'
+import { useCreatedDeckMutation, useGetDecksQuery } from '@/services/decks'
 import { decksActions } from '@/services/decks/decks.slice.ts'
 import { useAppDispatch, useAppSelector } from '@/services/store.ts'
 
@@ -16,10 +16,13 @@ export const Decks = () => {
     currentPage,
     name: searchByName,
   })
+  const [createDeck, { isLoading: isCreateDeckLoading }] = useCreatedDeckMutation()
   const [perPage, setPerPage] = useState('')
+  const [cardName, setCardNAme] = useState('')
   const changeItemsPerPage = (e: ChangeEvent<HTMLInputElement>) => {
     setPerPage(e.currentTarget.value)
   }
+  const handleCreateCard = () => createDeck({ name: cardName })
 
   useEffect(() => {
     const id = setTimeout(() => {
@@ -37,7 +40,15 @@ export const Decks = () => {
       <div>
         <Input onChange={changeItemsPerPage} value={perPage} name={'search name'} />
       </div>
-
+      <div>
+        isCreateDeckLoading: {isCreateDeckLoading.toString()}
+        <Input
+          onChange={e => setCardNAme(e.currentTarget.value)}
+          value={cardName}
+          name={'Created deck'}
+        />
+        <Button onClick={handleCreateCard}>Add</Button>
+      </div>
       <Table.Root>
         <Table.Head>
           <Table.Row>
