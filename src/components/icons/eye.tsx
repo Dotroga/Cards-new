@@ -7,7 +7,7 @@ import { SVG } from '@/components'
 type EyeType = {
   show: boolean
   setShow: () => void
-  disabled: boolean
+  disabled?: boolean
 }
 export const Eye: FC<EyeType> = ({ show, setShow, disabled }) => {
   const handler = () => !disabled && setShow()
@@ -44,7 +44,7 @@ export const Eye: FC<EyeType> = ({ show, setShow, disabled }) => {
   )
 }
 
-const Wrapper = styled.div<{ disabled: boolean }>`
+const Wrapper = styled.div<{ disabled?: boolean }>`
   cursor: pointer;
   fill: ${({ theme }) => theme.colors.light_100};
   svg {
