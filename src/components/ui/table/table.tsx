@@ -1,9 +1,7 @@
 import { ComponentProps, ComponentPropsWithoutRef, FC } from 'react'
 
-import clsx from 'clsx'
 import { BiChevronUp } from 'react-icons/bi'
 
-import s from './table.module.scss'
 import { StyledTable } from './table.styled'
 
 import { Typography } from '@/components'
@@ -21,7 +19,7 @@ export const Head: FC<HeadProps> = props => {
   return <thead {...props} />
 }
 
-export type Column = { head; title: string; key: string; sortable?: boolean }
+export type Column = { title: string; key: string; sortable?: boolean }
 export const Header: FC<
   Omit<
     HeadProps & {
@@ -32,9 +30,6 @@ export const Header: FC<
     'children'
   >
 > = ({ columns, sort, onSort, ...restProps }) => {
-  const classNames = {
-    chevron: sort?.direction === 'asc' ? '' : s.chevronDown,
-  }
   const handleSort = (key: string, sortable?: boolean) => () => {
     if (!onSort || !sortable) return
 
@@ -54,7 +49,7 @@ export const Header: FC<
         {columns.map(({ title, key, sortable }) => (
           <HeadCell key={key} onClick={handleSort(key, sortable)} sortable={sortable}>
             {title}
-            {sort?.key === key ? <BiChevronUp className={classNames.chevron} /> : ''}
+            {sort?.key === key ? <BiChevronUp /> : ''}
           </HeadCell>
         ))}
       </Row>
@@ -85,29 +80,17 @@ export const HeadCell: FC<HeadCellProps> = ({ className, children, ...rest }) =>
   )
 }
 
-export type CellProps = ComponentProps<'td'>
+export type CellProps = ComponentPropsWithoutRef<'td'>
 
 export const Cell: FC<CellProps> = ({ className, ...rest }) => {
-  const classNames = {
-    cell: clsx(className, s.tableCell),
-  }
-
-  return <td className={classNames.cell} {...rest} />
+  return <StyledTable.Cell {...rest} />
 }
 
-export const Empty: FC<ComponentProps<'div'> & { mt?: string; mb?: string }> = ({
-  className,
-  mt = '89px',
-  mb,
-}) => {
-  const classNames = {
-    empty: clsx(className, s.empty),
-  }
-
+export const Empty: FC<ComponentProps<'div'>> = ({}) => {
   return (
-    <Typography as={'h2'} className={classNames.empty} style={{ marginTop: mt, marginBottom: mb }}>
-      Пока тут еще нет данных! :(
-    </Typography>
+    <StyledTable.Empty>
+      <Typography as={'h2'}>Пока тут еще нет данных! :(</Typography>
+    </StyledTable.Empty>
   )
 }
 

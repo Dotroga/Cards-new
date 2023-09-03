@@ -19,8 +19,8 @@ export type Deck = {
   shots: number
   cover?: any
   rating: number
-  isDeleted?: any
-  isBlocked?: any
+  isDeleted?: boolean
+  isBlocked?: boolean
   created: string
   updated: string
   author: DeckAuthor

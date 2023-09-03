@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { HeadCellProps } from '@/components/ui/table/table.tsx'
+import { CellProps, HeadCellProps } from '@/components/ui/table/table.tsx'
 
 const Table = styled.table`
   border-collapse: collapse;
@@ -10,12 +10,13 @@ const Table = styled.table`
 
 const Head = styled.th<HeadCellProps>(props => {
   const sortable = props.sortable
+  const typography = props.theme.typography
 
   return css`
     padding: 6px 24px;
-    font-size: var(--font-size-s);
-    font-weight: var(--font-weight-medium);
-    line-height: var(--line-height-m);
+    font-size: ${typography.fontSize_S};
+    font-weight: ${typography.fontWeightRegular};
+    line-height: ${typography.lineHeight_M};
     background-color: ${({ theme }) => theme.colors.dark_500};
 
     span {
@@ -32,7 +33,28 @@ const Head = styled.th<HeadCellProps>(props => {
   `
 })
 
+const Cell = styled.td<CellProps>(props => {
+  const typography = props.theme.typography
+
+  return css`
+    padding: 6px 24px;
+
+    font-size: ${typography.fontSize_S};
+    line-height: ${typography.lineHeight_M};
+
+    border-bottom: ${({ theme }) => theme.colors.dark_500};
+  `
+})
+
+const Empty = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`
+
 export const StyledTable = {
   Table,
   Head,
+  Cell,
+  Empty,
 }
