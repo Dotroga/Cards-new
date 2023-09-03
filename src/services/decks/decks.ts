@@ -3,9 +3,9 @@ import { baseApi } from '@/services/base-api.ts'
 const decksApi = baseApi.injectEndpoints({
   endpoints: builder => {
     return {
-      getDecks: builder.query<DecksResponse, void>({
-        query: () => {
-          return { url: 'v1/decks', method: 'GET' }
+      getDecks: builder.query<DecksResponse, GetDeskArgs>({
+        query: args => {
+          return { url: 'v1/decks', method: 'GET', params: args }
         },
       }),
     }
@@ -19,6 +19,16 @@ export interface Pagination {
   currentPage: number
   itemsPerPage: number
   totalItems: number
+}
+
+export type GetDeskArgs = {
+  authorId?: string
+  name?: string
+  minCardsCount?: number
+  maxCardsCount?: number
+  orderBy?: string
+  currentPage?: number
+  itemsPerPage?: number
 }
 
 export interface Author {
