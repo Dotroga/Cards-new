@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef, useState } from 'react'
+import { ChangeEvent, ComponentPropsWithoutRef, forwardRef, useState } from 'react'
 
 import { Eye, Typography, WrapperInput } from '@/components'
 
@@ -12,7 +12,7 @@ export const Input = forwardRef<HTMLInputElement, PropsInputType>((props, ref) =
   const { onChange, disabled, onValueChange, type, name, error, ...restProps } = props
   const upperName = name.charAt(0).toUpperCase() + name.slice(1)
   const [showPass, setShowPass] = useState(type !== 'password')
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e)
     onValueChange?.(e.target.value)
   }
