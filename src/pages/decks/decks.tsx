@@ -31,7 +31,7 @@ export const Decks = () => {
 
     return () => clearTimeout(id)
   }, [perPage])
-  // const [initializeQuery, { data, isloading }] = useLazyGetDecksQuery()
+  // const [initializeQuery, { data, isloading }] = useLazyGetDecksQuery() // запрос по команде
 
   if (isLoading) return <div>Loading...</div>
 

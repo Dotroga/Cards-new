@@ -41,4 +41,5 @@ export const colors = {
   dark_500: '#333',
   dark_700: '#171717',
   dark_900: '#000',
+  dark_transparent: 'rgba(63,63,63,0.44)',
 }
