@@ -1,4 +1,5 @@
 import { baseApi } from '@/services/base-api.ts'
+import { PaginatedEntity } from '@/services/types.ts'
 
 const decksApi = baseApi.injectEndpoints({
   endpoints: builder => {
@@ -63,8 +64,6 @@ export interface Deck {
   author: Author
 }
 
-export interface DecksResponse {
+export type DecksResponse = PaginatedEntity<Deck> & {
   maxCardsCount: number
-  pagination: Pagination
-  items: Deck[]
 }
