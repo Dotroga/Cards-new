@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { Meta } from '@storybook/react'
 
-import { TabSwitcher } from '@/components/ui/tab_switcher/tab-switcher.tsx'
+import { TabSwitcher } from '@/components'
 import { withThemeProvider } from '@/utils/decorators.tsx'
 
 export default {
@@ -19,13 +19,14 @@ export const Default = {
     return (
       <TabSwitcher
         value={value}
-        onValueChange={v => setValue(v)}
-        type={'single'}
+        onClick={v => setValue(v)}
+        disabled={args.disabled}
         array={args.array}
       />
     )
   },
   args: {
     array: ['Switcher', 'Hello', 'React'],
+    disabled: false,
   },
 }
