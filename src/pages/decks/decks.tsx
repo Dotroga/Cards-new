@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import { Button, Input, Range, TabSwitcher } from '@/components'
 import { Table } from '@/components/ui/table'
 import {
@@ -19,6 +21,7 @@ export const Decks = () => {
   const minCardsCount = useAppSelector(selectMin)
 
   const dispatch = useAppDispatch()
+  const [range, setRange] = useState([0, 20])
   const { data, isLoading } = useGetDecksQuery({
     itemsPerPage,
     currentPage,
@@ -26,9 +29,14 @@ export const Decks = () => {
     minCardsCount,
     maxCardsCount,
   })
-  const changeCardsCount = (value: number[]) => {
-    dispatch(decksActions.changeCardsCount({ value }))
-  }
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      dispatch(decksActions.changeCardsCount({ value: range }))
+    }, 1000)
+
+    return () => clearTimeout(id)
+  })
 
   // // const [initializeQuery, { data, isloading }] = useLazyGetDecksQuery() // запрос по команде
 
@@ -39,12 +47,7 @@ export const Decks = () => {
       <div>
         <Input placeholder="Input search" />
         <TabSwitcher value={'All card'} onClick={() => {}} array={['My card', 'All card']} />
-        <Range
-          onValueChange={changeCardsCount}
-          min={0}
-          max={25}
-          value={[minCardsCount ?? 0, maxCardsCount ?? 25]}
-        />
+        <Range onValueChange={setRange} min={0} max={30} value={[range[0], range[1]]} />
         <Button>Clear filter</Button>
       </div>
       <Table.Root>
