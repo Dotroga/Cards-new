@@ -3,14 +3,14 @@ import { ChangeEvent, ComponentPropsWithoutRef, forwardRef, useState } from 'rea
 import { Eye, Typography, WrapperInput } from '@/components'
 
 export type PropsInputType = {
-  name: string
+  name?: string
   type?: 'text' | 'number' | 'email' | 'password' | 'search'
   error?: string | undefined
   onValueChange?: (value: string) => void
 } & ComponentPropsWithoutRef<'input'>
 export const Input = forwardRef<HTMLInputElement, PropsInputType>((props, ref) => {
   const { onChange, disabled, onValueChange, type, name, error, ...restProps } = props
-  const upperName = name.charAt(0).toUpperCase() + name.slice(1)
+  const upperName = name && name.charAt(0).toUpperCase() + name.slice(1)
   const [showPass, setShowPass] = useState(type !== 'password')
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e)

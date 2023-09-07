@@ -3,8 +3,23 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 const initialState = {
   currentPage: 1,
   itemsPerPage: 10,
-  searchByName: '',
+  searchByName: undefined as undefined | string,
+  minCardsCount: undefined as undefined | number,
+  maxCardsCount: undefined as undefined | number,
 }
+
+// const changeCardsCount = createAppAsyncThunk<{ null }, { value: number[] }>(
+//   'lists/editingList',
+//   async ({ value }, thunkAPI) => {
+//     const { dispatch, rejectWithValue, getState } = thunkAPI
+//
+//     try {
+//       dispatch(decksActions.changeCardsCount({ value }))
+//     } catch (e) {
+//       return rejectWithValue(null)
+//     }
+//   }
+// )
 
 const slice = createSlice({
   initialState,
@@ -18,6 +33,10 @@ const slice = createSlice({
     },
     setSearchByName: (state, action: PayloadAction<{ searchByName: string }>) => {
       state.searchByName = action.payload.searchByName
+    },
+    changeCardsCount: (state, action: PayloadAction<{ value: number[] }>) => {
+      state.minCardsCount = action.payload.value[0]
+      state.maxCardsCount = action.payload.value[1]
     },
   },
 })
