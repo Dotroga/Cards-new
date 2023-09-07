@@ -1,53 +1,51 @@
-import { ChangeEvent, useEffect, useState } from 'react'
-
-import { Button, Input } from '@/components'
+import { Button, Input, Range, TabSwitcher } from '@/components'
 import { Table } from '@/components/ui/table'
-import { useCreatedDeckMutation, useGetDecksQuery } from '@/services/decks'
+import {
+  selectCurrentPage,
+  selectItemsPerPage,
+  selectMax,
+  selectMin,
+  selectSearchByName,
+  useGetDecksQuery,
+} from '@/services/decks'
 import { decksActions } from '@/services/decks/decks.slice.ts'
 import { useAppDispatch, useAppSelector } from '@/services/store.ts'
 
 export const Decks = () => {
-  const itemsPerPage = useAppSelector(state => state.decks.itemsPerPage)
-  const currentPage = useAppSelector(state => state.decks.currentPage)
-  const searchByName = useAppSelector(state => state.decks.searchByName)
+  const itemsPerPage = useAppSelector(selectItemsPerPage)
+  const currentPage = useAppSelector(selectCurrentPage)
+  const searchByName = useAppSelector(selectSearchByName)
+  const maxCardsCount = useAppSelector(selectMax)
+  const minCardsCount = useAppSelector(selectMin)
+
   const dispatch = useAppDispatch()
   const { data, isLoading } = useGetDecksQuery({
     itemsPerPage,
     currentPage,
     name: searchByName,
+    minCardsCount,
+    maxCardsCount,
   })
-  const [createDeck, { isLoading: isCreateDeckLoading }] = useCreatedDeckMutation()
-  const [perPage, setPerPage] = useState('')
-  const [cardName, setCardNAme] = useState('')
-  const changeItemsPerPage = (e: ChangeEvent<HTMLInputElement>) => {
-    setPerPage(e.currentTarget.value)
+  const changeCardsCount = (value: number[]) => {
+    dispatch(decksActions.changeCardsCount({ value }))
   }
-  const handleCreateCard = () => createDeck({ name: cardName })
 
-  useEffect(() => {
-    const id = setTimeout(() => {
-      dispatch(decksActions.setSearchByName({ searchByName: perPage }))
-    }, 1300)
-
-    return () => clearTimeout(id)
-  }, [perPage])
-  // const [initializeQuery, { data, isloading }] = useLazyGetDecksQuery() // запрос по команде
+  // // const [initializeQuery, { data, isloading }] = useLazyGetDecksQuery() // запрос по команде
 
   if (isLoading) return <div>Loading...</div>
 
   return (
     <div>
       <div>
-        <Input onChange={changeItemsPerPage} value={perPage} name={'search name'} />
-      </div>
-      <div>
-        isCreateDeckLoading: {isCreateDeckLoading.toString()}
-        <Input
-          onChange={e => setCardNAme(e.currentTarget.value)}
-          value={cardName}
-          name={'Created deck'}
+        <Input placeholder="Input search" />
+        <TabSwitcher value={'All card'} onClick={() => {}} array={['My card', 'All card']} />
+        <Range
+          onValueChange={changeCardsCount}
+          min={0}
+          max={25}
+          value={[minCardsCount ?? 0, maxCardsCount ?? 25]}
         />
-        <Button onClick={handleCreateCard}>Add</Button>
+        <Button>Clear filter</Button>
       </div>
       <Table.Root>
         <Table.Head>
