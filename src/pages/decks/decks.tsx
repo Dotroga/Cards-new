@@ -1,5 +1,6 @@
 import { Table } from '@/components/ui/table'
-import { DecksNav } from '@/pages/decks/decks-nav/decks-nav.tsx'
+import { AddNewPack } from '@/pages/decks/add-new-pack'
+import { DecksNav } from '@/pages/decks/decks-nav'
 import { DecksWrapper } from '@/pages/decks/decks.styled.ts'
 import {
   selectCurrentPage,
@@ -34,6 +35,7 @@ export const Decks = () => {
 
   return (
     <DecksWrapper className="Decks">
+      <AddNewPack />
       <DecksNav />
       <Table.Root>
         <Table.Head>

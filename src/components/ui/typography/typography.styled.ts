@@ -20,11 +20,11 @@ export const TypographyStaled = styled.p<TypographyStaledType>(props => {
     return css`
       display: flex;
       align-items: center;
-      gap: 10px;
       font-size: ${fontSize};
       font-weight: ${fontWeight};
       line-height: ${lineHeight};
       color: ${color};
+      gap: 10px;
     `
   }
 
@@ -42,7 +42,7 @@ export const TypographyStaled = styled.p<TypographyStaledType>(props => {
     case 'subtitle2':
       return handler(fontSize_S, fontWeightBold, lineHeight_M)
     case 'body1':
-      return handler(fontSize_S, fontWeightRegular, lineHeight_M)
+      return handler(fontSize_M, fontWeightRegular, lineHeight_M)
     case 'body2':
       return handler(fontSize_S, fontWeightRegular, lineHeight_M)
     case 'overline':

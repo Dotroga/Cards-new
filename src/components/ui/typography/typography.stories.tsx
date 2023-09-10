@@ -10,23 +10,21 @@ const meta = {
   decorators: [withThemeProvider],
   tags: ['autodocs'],
   argTypes: {
-    as: {
-      options: [
-        'large',
-        'h1',
-        'h2',
-        'h3',
-        'subtitle1',
-        'subtitle2',
-        'body1',
-        'body2',
-        'overline',
-        'caption',
-        'error',
-        'link',
-        'link2',
-      ],
-    },
+    as: [
+      'large',
+      'h1',
+      'h2',
+      'h3',
+      'subtitle1',
+      'subtitle2',
+      'body1',
+      'body2',
+      'overline',
+      'caption',
+      'error',
+      'link',
+      'link2',
+    ],
   },
 } as Meta<typeof Typography>
 
@@ -34,8 +32,34 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
-  args: {
-    as: 'h2',
-    children: 'Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH',
+  render: () => {
+    return (
+      <>
+        {as.map(i => (
+          <div key={i}>
+            {i}
+            <Typography as={i}>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, cumque!
+            </Typography>
+          </div>
+        ))}
+      </>
+    )
   },
 }
+
+const as = [
+  'large',
+  'h1',
+  'h2',
+  'h3',
+  'subtitle1',
+  'subtitle2',
+  'body1',
+  'body2',
+  'overline',
+  'caption',
+  'error',
+  'link',
+  'link2',
+]
