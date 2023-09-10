@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components'
 import { CellProps, HeadCellProps } from '@/components/ui/table/table.tsx'
 
 const Table = styled.table`
-  max-width: 1300px;
   width: 100%;
   border-collapse: collapse;
   color: ${({ theme }) => theme.colors.light_100};

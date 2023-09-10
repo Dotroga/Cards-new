@@ -35,6 +35,8 @@ type StyledProps = Omit<TabSwitcherPropsType, 'array'> & { active: string }
 
 const ToggleGroup = styled.div`
   display: inline-flex;
+  box-sizing: border-box;
+  height: 36px;
   background-color: #4c4c4c;
   padding: 1px;
   gap: 1px;
@@ -46,6 +48,9 @@ const ToggleItem = styled.span<StyledProps>(props => {
   return css`
     display: flex;
     padding: 6px 24px;
+    @media (max-width: 1000px) {
+      padding: 6px 18px;
+    }
     justify-content: center;
     align-items: center;
     cursor: pointer;

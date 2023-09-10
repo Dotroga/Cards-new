@@ -8,12 +8,15 @@ export const RangeWrapper = styled.div(props => {
     flex-direction: row;
     align-content: center;
     gap: 12px;
+    box-sizing: border-box;
+    height: 36px;
+
     .Number {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       flex-shrink: 0;
       border-radius: 2px;
       border: 1px solid ${colors.dark_300};

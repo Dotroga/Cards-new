@@ -8,10 +8,14 @@ export const ButtonStyled = styled.button<ButtonProps>(props => {
 
   return css`
     display: flex;
+    height: 36px;
     align-items: center;
     justify-content: center;
     gap: 0.625rem;
     padding: 0.375rem 1.75rem;
+    @media (max-width: 1000px) {
+      padding: 0.375rem 1.25rem;
+    }
     border-radius: 0.25rem;
     cursor: pointer;
     outline: none;

@@ -2,25 +2,29 @@ import styled, { css } from 'styled-components'
 
 export const WrapperInput = styled.div<{ error?: string; disabled?: boolean }>(props => {
   const colors = props.theme.colors
+  const typography = props.theme.typography
   const { error, disabled } = props
 
   return css`
     width: 100%;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     position: relative;
+
     input {
       outline: none;
+      box-sizing: border-box;
+      height: 36px;
       transition: 0.5s;
       background: none;
-      padding: 0.38rem 0.75rem;
+      padding: 0 0.75rem;
       border-radius: 0.125rem;
       border: 1px solid ${colors.dark_300};
       color: ${colors.dark_100};
-      font-size: 1rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 1.5rem;
+      font-weight: ${typography.fontWeightRegular};
+      font-size: ${typography.fontSize_M};
+      line-height: ${typography.lineHeight_M};
       ${error &&
       css`
         border: 1px solid ${colors.danger_300};
@@ -44,7 +48,9 @@ export const WrapperInput = styled.div<{ error?: string; disabled?: boolean }>(p
       color: ${colors.dark_100};
     }
     .error {
-      height: 30px;
+      height: 24px;
+      position: absolute;
+      top: 68px;
     }
     svg {
       position: absolute;
