@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react'
-
-import { Button, Input, Range, TabSwitcher } from '@/components'
 import { Table } from '@/components/ui/table'
+import { DecksNav } from '@/pages/decks/decks-nav/decks-nav.tsx'
+import { DecksWrapper } from '@/pages/decks/decks.styled.ts'
 import {
   selectCurrentPage,
   selectItemsPerPage,
@@ -10,8 +9,7 @@ import {
   selectSearchByName,
   useGetDecksQuery,
 } from '@/services/decks'
-import { decksActions } from '@/services/decks/decks.slice.ts'
-import { useAppDispatch, useAppSelector } from '@/services/store.ts'
+import { useAppSelector } from '@/services/store.ts'
 
 export const Decks = () => {
   const itemsPerPage = useAppSelector(selectItemsPerPage)
@@ -20,8 +18,8 @@ export const Decks = () => {
   const maxCardsCount = useAppSelector(selectMax)
   const minCardsCount = useAppSelector(selectMin)
 
-  const dispatch = useAppDispatch()
-  const [range, setRange] = useState([0, 20])
+  // const dispatch = useAppDispatch()
+
   const { data, isLoading } = useGetDecksQuery({
     itemsPerPage,
     currentPage,
@@ -30,26 +28,13 @@ export const Decks = () => {
     maxCardsCount,
   })
 
-  useEffect(() => {
-    const id = setTimeout(() => {
-      dispatch(decksActions.changeCardsCount({ value: range }))
-    }, 1000)
-
-    return () => clearTimeout(id)
-  })
-
   // // const [initializeQuery, { data, isloading }] = useLazyGetDecksQuery() // запрос по команде
 
   if (isLoading) return <div>Loading...</div>
 
   return (
-    <div>
-      <div>
-        <Input placeholder="Input search" />
-        <TabSwitcher value={'All card'} onClick={() => {}} array={['My card', 'All card']} />
-        <Range onValueChange={setRange} min={0} max={30} value={[range[0], range[1]]} />
-        <Button>Clear filter</Button>
-      </div>
+    <DecksWrapper className="Decks">
+      <DecksNav />
       <Table.Root>
         <Table.Head>
           <Table.Row>
@@ -70,6 +55,6 @@ export const Decks = () => {
           ))}
         </Table.Body>
       </Table.Root>
-    </div>
+    </DecksWrapper>
   )
 }

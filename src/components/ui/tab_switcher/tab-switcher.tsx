@@ -50,6 +50,7 @@ const ToggleItem = styled.span<StyledProps>(props => {
     align-items: center;
     cursor: pointer;
     transition: 0.3s;
+    white-space: nowrap;
     ${active === 'true' &&
     css`
       box-shadow: 0 0 0 1px ${theme.colors.accent_500};

@@ -40,7 +40,7 @@ export const TypographyStaled = styled.p<TypographyStaledType>(props => {
     case 'subtitle1':
       return handler(fontSize_M, fontWeightBold, lineHeight_M)
     case 'subtitle2':
-      return handler(fontSize_S, fontWeightRegular, lineHeight_M)
+      return handler(fontSize_S, fontWeightBold, lineHeight_M)
     case 'body1':
       return handler(fontSize_S, fontWeightRegular, lineHeight_M)
     case 'body2':
