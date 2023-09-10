@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components'
 import { CellProps, HeadCellProps } from '@/components/ui/table/table.tsx'
 
 const Table = styled.table`
+  max-width: 1300px;
+  width: 100%;
   border-collapse: collapse;
   color: ${({ theme }) => theme.colors.light_100};
   border: 1px solid ${({ theme }) => theme.colors.dark_500};
@@ -38,10 +40,9 @@ const Cell = styled.td<CellProps>(props => {
 
   return css`
     padding: 6px 24px;
-
+    font-weight: ${typography.fontWeightRegular};
     font-size: ${typography.fontSize_S};
     line-height: ${typography.lineHeight_M};
-
     border-bottom: ${({ theme }) => theme.colors.dark_500};
   `
 })

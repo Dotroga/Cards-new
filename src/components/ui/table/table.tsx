@@ -75,7 +75,7 @@ export type HeadCellProps = ComponentPropsWithoutRef<'th'> & {
 export const HeadCell: FC<HeadCellProps> = ({ className, children, ...rest }) => {
   return (
     <StyledTable.Head {...rest}>
-      <span>{children}</span>
+      <Typography as={'subtitle2'}>{children}</Typography>
     </StyledTable.Head>
   )
 }
