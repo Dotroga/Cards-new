@@ -2,6 +2,7 @@ import { Table } from '@/components/ui/table'
 import { AddNewPack } from '@/pages/decks/add-new-pack'
 import { DecksNav } from '@/pages/decks/decks-nav'
 import { DecksWrapper } from '@/pages/decks/decks.styled.ts'
+import { DecksPagination } from '@/pages/decks/pagination'
 import {
   selectCurrentPage,
   selectItemsPerPage,
@@ -57,6 +58,7 @@ export const Decks = () => {
           ))}
         </Table.Body>
       </Table.Root>
+      <DecksPagination pagination={data.pagination} />
     </DecksWrapper>
   )
 }

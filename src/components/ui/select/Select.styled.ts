@@ -11,19 +11,20 @@ export const SelectWrapper = styled.div<SelectStyledType>(props => {
   return css`
     cursor: pointer;
     z-index: 2;
+    position: relative;
     .visible {
       display: flex;
       justify-content: space-between;
+      gap: 20px;
       align-content: center;
-      padding: 6px 12px;
+      padding: 6px 20px 6px 10px;
       border: 1px solid ${visible ? colors.dark_100 : colors.dark_300};
       .arrow-icon {
         height: 22px;
         display: flex;
         align-items: center;
         position: relative;
-        top: 11px;
-        right: 20px;
+        top: 6px;
         cursor: pointer;
       }
       .left-bar {
@@ -36,7 +37,7 @@ export const SelectWrapper = styled.div<SelectStyledType>(props => {
           content: '';
           background-color: ${colors.light_100};
           border-radius: 2px;
-          width: 12px;
+          width: 9px;
           height: 2px;
           float: left;
         }
@@ -51,7 +52,7 @@ export const SelectWrapper = styled.div<SelectStyledType>(props => {
           content: '';
           background-color: ${colors.light_100};
           border-radius: 2px;
-          width: 12px;
+          width: 9px;
           height: 2px;
           float: right;
         }
@@ -59,6 +60,7 @@ export const SelectWrapper = styled.div<SelectStyledType>(props => {
       ${visible &&
       css`
         border-bottom: none;
+        padding-bottom: 7px;
 
         .left-bar:after {
           transform-origin: center center;
@@ -73,9 +75,9 @@ export const SelectWrapper = styled.div<SelectStyledType>(props => {
 
       span {
         display: inline-block;
-        width: 18px;
-        height: 18px;
-        margin-right: 10px;
+        width: 14px;
+        height: 14px;
+        margin-right: 11px;
         border-radius: 5px;
       }
 
@@ -86,7 +88,10 @@ export const SelectWrapper = styled.div<SelectStyledType>(props => {
       }
     }
     .popup {
+      box-sizing: border-box;
       border: 1px solid ${visible ? colors.dark_100 : colors.dark_300};
+      position: absolute;
+      width: 100%;
     }
     .iconSelect {
       padding: 6px 12px;
