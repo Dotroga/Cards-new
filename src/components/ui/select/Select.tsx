@@ -6,8 +6,8 @@ import { SelectWrapper } from '@/components/ui/select/Select.styled.ts'
 import { useOutsideClick } from '@/utils/useOutsideClick.ts'
 
 type SelectPropsType = {
-  arr: string[]
-  value: string
+  arr: string | number[]
+  value: string | number
   onChange?: (value: string) => void
 }
 
