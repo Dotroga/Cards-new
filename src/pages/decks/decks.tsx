@@ -58,7 +58,7 @@ export const Decks = () => {
           ))}
         </Table.Body>
       </Table.Root>
-      <DecksPagination pagination={data.pagination} />
+      <DecksPagination pagination={data!.pagination} />
     </DecksWrapper>
   )
 }

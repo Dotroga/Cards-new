@@ -6,9 +6,9 @@ import { SelectWrapper } from '@/components/ui/select/Select.styled.ts'
 import { useOutsideClick } from '@/utils/useOutsideClick.ts'
 
 type SelectPropsType = {
-  arr: string | number[]
+  arr: string[] | number[]
   value: string | number
-  onChange?: (value: string) => void
+  onChange?: (value: string | number) => void
 }
 
 export const Select: React.FC<SelectPropsType> = memo(props => {
@@ -19,7 +19,7 @@ export const Select: React.FC<SelectPropsType> = memo(props => {
 
   useOutsideClick(ref, changeVisibility, visiblePopUp)
 
-  const selectingActive = (i: string) => {
+  const selectingActive = (i: string | number) => {
     onChange!(i)
     setVisiblePopUp(false)
   }
