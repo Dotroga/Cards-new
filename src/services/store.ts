@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
+import { app } from '@/services/app/app.slice.ts'
 import { baseApi } from '@/services/base-api.ts'
 import { decks } from '@/services/decks/decks.slice.ts'
 
@@ -8,6 +9,7 @@ export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     decks,
+    app,
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(baseApi.middleware),
 })

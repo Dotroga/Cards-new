@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from 'react'
+import { FC, memo, useRef, useState } from 'react'
 
 import styled from 'styled-components'
 
@@ -11,7 +11,7 @@ type SelectPropsType = {
   onChange?: (value: string | number) => void
 }
 
-export const Select: React.FC<SelectPropsType> = memo(props => {
+export const Select: FC<SelectPropsType> = memo(props => {
   const { arr, value, onChange } = props
   const ref = useRef<HTMLDivElement>(null)
   const [visiblePopUp, setVisiblePopUp] = useState(false)
