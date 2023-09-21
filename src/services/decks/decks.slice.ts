@@ -37,6 +37,14 @@ const slice = createSlice({
     changeCardsCount: (state, action: PayloadAction<{ value: number[] }>) => {
       state.minCardsCount = action.payload.value[0]
       state.maxCardsCount = action.payload.value[1]
+      state.currentPage = 1
+    },
+    clearFilter: state => {
+      state.minCardsCount = 0
+      state.maxCardsCount = 30
+      state.currentPage = 1
+      state.itemsPerPage = 10
+      state.searchByName = undefined
     },
   },
 })

@@ -17,7 +17,7 @@ export const DecksNav = () => {
     }, 1000)
 
     return () => clearTimeout(id)
-  })
+  }, [range])
 
   return (
     <DecksNavWrapper>
@@ -30,7 +30,7 @@ export const DecksNav = () => {
         <Typography as={'body2'}>Number of cards</Typography>
         <Range onValueChange={setRange} min={0} max={30} value={[range[0], range[1]]} />
       </Box>
-      <Button variant={'secondary'}>
+      <Button variant={'secondary'} onClick={() => dispatch(decksActions.clearFilter())}>
         <Trash />
         Clear Filter
       </Button>

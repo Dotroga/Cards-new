@@ -43,7 +43,7 @@ export const Select: FC<SelectPropsType> = memo(props => {
   )
 })
 
-const Items: React.FC<Omit<SelectPropsType, 'name' | 'value'>> = props => {
+const Items: FC<Omit<SelectPropsType, 'name' | 'value'>> = props => {
   const { onChange, arr } = props
 
   return (
@@ -57,7 +57,7 @@ const Items: React.FC<Omit<SelectPropsType, 'name' | 'value'>> = props => {
   )
 }
 
-const Item: React.FC<Omit<SelectPropsType, 'name' | 'arr'>> = props => {
+const Item: FC<Omit<SelectPropsType, 'name' | 'arr'>> = props => {
   const { value, onChange } = props
   const handler = () => onChange && onChange(value!)
 
