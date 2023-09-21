@@ -27,7 +27,7 @@ export default {
 } as ComponentMeta<typeof Select>
 
 const Template: ComponentStory<typeof Select> = args => {
-  const [value, setValue] = useState<string>(args.arr[0])
+  const [value, setValue] = useState<string | number>(args.arr[0])
 
   return <Select onChange={value => setValue(value)} value={value} arr={args.arr} />
 }
