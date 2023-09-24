@@ -10,12 +10,12 @@ const decksApi = baseApi.injectEndpoints({
         },
         providesTags: ['Decks'],
       }),
-      createdDeck: builder.mutation<any, any>({
-        query: ({ name }) => {
+      createdDeck: builder.mutation<Deck, Pick<Deck, 'name' | 'isPrivate'>>({
+        query: data => {
           return {
             url: 'v1/decks',
             method: 'POST',
-            body: { name },
+            body: data,
           }
         },
         invalidatesTags: ['Decks'],

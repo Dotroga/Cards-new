@@ -1,6 +1,5 @@
 import { FC, useRef } from 'react'
 
-import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
@@ -13,9 +12,10 @@ import { appActions } from '@/services/app/app.slice.ts'
 import { useAppDispatch, useAppSelector } from '@/services/store.ts'
 import { useOutsideClick } from '@/utils/useOutsideClick.ts'
 
-type AddPackSchemaType = z.infer<typeof addPackSchema>
+export type AddPackSchemaType = z.infer<typeof addPackSchema>
 type AddPackFormType<T> = {
   onSubmit: (data: T) => void
+  type: 'add' | 'edit'
 }
 
 const addPackSchema = z.object({
@@ -24,10 +24,10 @@ const addPackSchema = z.object({
     .nonempty('Name is required')
     .min(3, 'At least three letters')
     .max(72, 'Name is too long'),
-  rememberMe: z.boolean().default(false),
+  isPrivate: z.boolean().default(false),
 })
 
-export const AddPackFrom: FC<AddPackFormType<AddPackSchemaType>> = ({ onSubmit }) => {
+export const AddPackFrom: FC<AddPackFormType<AddPackSchemaType>> = ({ onSubmit, type }) => {
   const dispatch = useAppDispatch()
   const ref = useRef<HTMLFormElement>(null)
 
@@ -47,17 +47,19 @@ export const AddPackFrom: FC<AddPackFormType<AddPackSchemaType>> = ({ onSubmit }
   return (
     <Form onSubmit={handleSubmit(onSubmit)} ref={ref}>
       <div className="add-pack-header">
-        <Typography as={'h2'}>Add New Pack</Typography>
+        <Typography as={'h2'}>{type === 'add' ? 'Add New Pack' : 'Edit Pack'}</Typography>
         <CloseIcon onClick={closeShowForm} />
       </div>
       <div className="add-pack-body">
         <Input error={errors.name?.message} placeholder={'Name'} {...register('name')} />
-        <ControlledCheckbox name="rememberMe" control={control}>
+        <ControlledCheckbox name="isPrivate" control={control}>
           Private Pack
         </ControlledCheckbox>
         <div className="add-pack-buttons">
-          <Button variant={'secondary'}>Cancel</Button>
-          <Button type="submit">Add New Pack</Button>
+          <Button onClick={closeShowForm} type={'button'} variant={'secondary'}>
+            Cancel
+          </Button>
+          <Button type="submit">{type === 'add' ? 'Add New Pack' : 'Save Changes'}</Button>
         </div>
       </div>
     </Form>
