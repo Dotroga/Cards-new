@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
-import { AddPackFrom, Button, Typography } from '@/components'
+import { AddPackFrom, AddPackSchemaType, Button, Typography } from '@/components'
 import { isShowAddPackForm } from '@/services/app/app.selectors.ts'
 import { appActions } from '@/services/app/app.slice.ts'
+import { useCreatedDeckMutation } from '@/services/decks'
 import { useAppDispatch, useAppSelector } from '@/services/store.ts'
 
 export const AddNewPack = () => {
@@ -11,11 +12,18 @@ export const AddNewPack = () => {
   const showForm = useAppSelector(isShowAddPackForm)
   const changeShowForm = () => dispatch(appActions.changeShowAddPackFrom({ isShow: true }))
 
+  const [createDeck, { isLoading }] = useCreatedDeckMutation()
+  const handleCreateDeck = (data: AddPackSchemaType) => {
+    console.log(data)
+    createDeck(data)
+  }
+
   return (
     <Wrapper>
+      {isLoading && <div>Loading</div>}
       <Typography as={'large'}>Packs list</Typography>
       <Button onClick={changeShowForm}>Add New Pack</Button>
-      {showForm && <AddPackFrom onSubmit={data => console.log(data)} />}
+      {showForm && <AddPackFrom type={'add'} onSubmit={handleCreateDeck} />}
     </Wrapper>
   )
 }
