@@ -16,6 +16,7 @@ export type AddPackSchemaType = z.infer<typeof addPackSchema>
 type AddPackFormType<T> = {
   onSubmit: (data: T) => void
   type: 'add' | 'edit'
+  isLoading: boolean
 }
 
 const addPackSchema = z.object({
@@ -27,7 +28,11 @@ const addPackSchema = z.object({
   isPrivate: z.boolean().default(false),
 })
 
-export const AddPackFrom: FC<AddPackFormType<AddPackSchemaType>> = ({ onSubmit, type }) => {
+export const AddPackFrom: FC<AddPackFormType<AddPackSchemaType>> = ({
+  onSubmit,
+  type,
+  isLoading,
+}) => {
   const dispatch = useAppDispatch()
   const ref = useRef<HTMLFormElement>(null)
 
@@ -56,10 +61,17 @@ export const AddPackFrom: FC<AddPackFormType<AddPackSchemaType>> = ({ onSubmit, 
           Private Pack
         </ControlledCheckbox>
         <div className="add-pack-buttons">
-          <Button onClick={closeShowForm} type={'button'} variant={'secondary'}>
+          <Button
+            onClick={closeShowForm}
+            type={'button'}
+            variant={'secondary'}
+            disabled={isLoading}
+          >
             Cancel
           </Button>
-          <Button type="submit">{type === 'add' ? 'Add New Pack' : 'Save Changes'}</Button>
+          <Button type="submit" disabled={isLoading}>
+            {type === 'add' ? 'Add New Pack' : 'Save Changes'}
+          </Button>
         </div>
       </div>
     </Form>

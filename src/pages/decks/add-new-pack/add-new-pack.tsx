@@ -13,17 +13,14 @@ export const AddNewPack = () => {
   const changeShowForm = () => dispatch(appActions.changeShowAddPackFrom({ isShow: true }))
 
   const [createDeck, { isLoading }] = useCreatedDeckMutation()
-  const handleCreateDeck = (data: AddPackSchemaType) => {
-    console.log(data)
-    createDeck(data)
-  }
+  const handleCreateDeck = (data: AddPackSchemaType) => createDeck(data)
 
   return (
     <Wrapper>
       {isLoading && <div>Loading</div>}
       <Typography as={'large'}>Packs list</Typography>
       <Button onClick={changeShowForm}>Add New Pack</Button>
-      {showForm && <AddPackFrom type={'add'} onSubmit={handleCreateDeck} />}
+      {showForm && <AddPackFrom type={'add'} onSubmit={handleCreateDeck} isLoading={isLoading} />}
     </Wrapper>
   )
 }
