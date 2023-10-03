@@ -8,7 +8,7 @@ const initialState = {
   searchByName: undefined as undefined | string,
   minCardsCount: undefined as undefined | number,
   maxCardsCount: undefined as undefined | number,
-  orderBy: undefined as undefined | string,
+  sort: undefined as Sort,
 }
 
 // const changeCardsCount = createAppAsyncThunk<{ null }, { value: number[] }>(
@@ -48,12 +48,10 @@ const slice = createSlice({
       state.currentPage = 1
       state.itemsPerPage = 10
       state.searchByName = undefined
-      state.orderBy = undefined
+      state.sort = undefined
     },
     changeOrderBy: (state, action: PayloadAction<{ sort: Sort }>) => {
-      const sort = action.payload.sort
-
-      sort ? (state.orderBy = `${sort?.key}-${sort?.direction}`) : (state.orderBy = undefined)
+      state.sort = action.payload.sort
     },
   },
 })

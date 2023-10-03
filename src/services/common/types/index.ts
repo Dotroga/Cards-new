@@ -9,10 +9,12 @@ export type Paginated<T> = {
   pagination: Pagination
   items: T[]
 }
-export type Sort = {
-  key: string
-  direction: 'asc' | 'desc'
-} | null
+export type Sort =
+  | {
+      key: string
+      direction: 'asc' | 'desc'
+    }
+  | undefined
 
 export type PaginatedArgs<T extends Record<string, any> = {}> = {
   currentPage?: number

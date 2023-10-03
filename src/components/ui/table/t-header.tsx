@@ -22,7 +22,7 @@ export const Header: FC<
   const handleSort = (key: string) => () => {
     if (!onSort) return
     if (sort?.key !== key) return onSort({ key, direction: 'asc' })
-    if (sort.direction === 'desc') return onSort(null)
+    if (sort.direction === 'desc') return onSort(undefined)
 
     return onSort({
       key,
