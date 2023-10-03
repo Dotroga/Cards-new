@@ -19,58 +19,10 @@ export const SelectWrapper = styled.div<SelectStyledType>(props => {
       align-content: center;
       padding: 6px 20px 6px 10px;
       border: 1px solid ${visible ? colors.dark_100 : colors.dark_300};
-      .arrow-icon {
-        height: 22px;
-        display: flex;
-        align-items: center;
-        position: relative;
-        top: 6px;
-        cursor: pointer;
-      }
-      .left-bar {
-        position: absolute;
-        background-color: transparent;
-        transform: rotate(35deg);
-        right: -15px;
-        &:after {
-          transition: 0.3s;
-          content: '';
-          background-color: ${colors.light_100};
-          border-radius: 2px;
-          width: 9px;
-          height: 2px;
-          float: left;
-        }
-      }
-      .right-bar {
-        position: absolute;
-        background-color: transparent;
-        transform: rotate(-35deg);
-
-        &:after {
-          transition: 0.3s;
-          content: '';
-          background-color: ${colors.light_100};
-          border-radius: 2px;
-          width: 9px;
-          height: 2px;
-          float: right;
-        }
-      }
       ${visible &&
       css`
         border-bottom: none;
         padding-bottom: 7px;
-
-        .left-bar:after {
-          transform-origin: center center;
-          transform: rotate(-70deg);
-        }
-
-        .right-bar:after {
-          transform-origin: center center;
-          transform: rotate(70deg);
-        }
       `}
 
       span {

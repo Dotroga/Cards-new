@@ -1,11 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+import { Sort } from '@/services/common/types'
+
 const initialState = {
   currentPage: 1,
   itemsPerPage: 10,
   searchByName: undefined as undefined | string,
   minCardsCount: undefined as undefined | number,
   maxCardsCount: undefined as undefined | number,
+  orderBy: undefined as undefined | string,
 }
 
 // const changeCardsCount = createAppAsyncThunk<{ null }, { value: number[] }>(
@@ -45,6 +48,12 @@ const slice = createSlice({
       state.currentPage = 1
       state.itemsPerPage = 10
       state.searchByName = undefined
+      state.orderBy = undefined
+    },
+    changeOrderBy: (state, action: PayloadAction<{ sort: Sort }>) => {
+      const sort = action.payload.sort
+
+      sort ? (state.orderBy = `${sort?.key}-${sort?.direction}`) : (state.orderBy = undefined)
     },
   },
 })

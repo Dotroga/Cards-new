@@ -3,11 +3,17 @@ import { FC, useState } from 'react'
 import { Column, Table } from '@/components/ui/table'
 import { Header } from '@/components/ui/table/t-header.tsx'
 import { Sort } from '@/services/common/types'
+import { decksActions } from '@/services/decks/decks.slice.ts'
 import { Deck } from '@/services/decks/types.ts'
+import { useAppDispatch } from '@/services/store.ts'
 
 export const DeckTable: FC<{ items: Deck[] | undefined }> = ({ items }) => {
+  const dispatch = useAppDispatch()
   const [sort, setSort] = useState<Sort>(null)
-
+  const handleSort = (sort: Sort) => {
+    setSort(sort)
+    dispatch(decksActions.changeOrderBy({ sort }))
+  }
   const columns = [
     {
       key: 'name',
@@ -22,14 +28,14 @@ export const DeckTable: FC<{ items: Deck[] | undefined }> = ({ items }) => {
       title: 'Last Updated',
     },
     {
-      key: 'createdBy',
+      key: 'author.name',
       title: 'Created by',
     },
   ] as Column[]
 
   return (
     <Table.Root>
-      <Header columns={columns} sort={sort} onSort={setSort} />
+      <Header columns={columns} sort={sort} onSort={handleSort} />
       <Table.Body>
         {items &&
           items.map(desk => (
