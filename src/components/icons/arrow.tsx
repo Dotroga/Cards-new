@@ -3,10 +3,8 @@ import styled, { css } from 'styled-components'
 export const ArrowIcon = (props: { visible: boolean }) => {
   return (
     <Wrapper visible={props.visible}>
-      <div className="arrow-icon">
-        <span className="left-bar"></span>
-        <span className="right-bar"></span>
-      </div>
+      <span className="left-bar"></span>
+      <span className="right-bar"></span>
     </Wrapper>
   )
 }
@@ -16,14 +14,21 @@ export const Wrapper = styled.div<{ visible?: boolean }>(props => {
   const colors = props.theme.colors
 
   return css`
-  .arrow-icon {
+ 
     height: 22px;
     display: flex;
     align-items: center;
     position: relative;
     top: 6px;
     cursor: pointer;
-  }
+    span {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-right: 11px;
+      border-radius: 5px;
+    }
+  
     .left-bar {
       position: absolute;
       background-color: transparent;

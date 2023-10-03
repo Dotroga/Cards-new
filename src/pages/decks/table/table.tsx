@@ -1,17 +1,18 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
 import { Column, Table } from '@/components/ui/table'
 import { Header } from '@/components/ui/table/t-header.tsx'
 import { Sort } from '@/services/common/types'
+import { selectSort } from '@/services/decks'
 import { decksActions } from '@/services/decks/decks.slice.ts'
 import { Deck } from '@/services/decks/types.ts'
-import { useAppDispatch } from '@/services/store.ts'
+import { useAppDispatch, useAppSelector } from '@/services/store.ts'
 
 export const DeckTable: FC<{ items: Deck[] | undefined }> = ({ items }) => {
   const dispatch = useAppDispatch()
-  const [sort, setSort] = useState<Sort>(null)
+  const sort = useAppSelector(selectSort)
+  // const [sort, setSort] = useState<Sort>(null)
   const handleSort = (sort: Sort) => {
-    setSort(sort)
     dispatch(decksActions.changeOrderBy({ sort }))
   }
   const columns = [

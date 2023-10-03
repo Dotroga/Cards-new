@@ -19,7 +19,8 @@ const Head = styled.th<HeadCellProps>(props => {
     font-weight: ${typography.fontWeightRegular};
     line-height: ${typography.lineHeight_M};
     background-color: ${({ theme }) => theme.colors.dark_500};
-
+    user-select: none;
+    cursor: pointer;
     span {
       user-select: none;
       display: flex;
