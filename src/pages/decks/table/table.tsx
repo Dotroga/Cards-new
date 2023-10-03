@@ -1,7 +1,6 @@
 import { FC } from 'react'
 
 import { Column, Table } from '@/components/ui/table'
-import { Header } from '@/components/ui/table/t-header.tsx'
 import { Sort } from '@/services/common/types'
 import { selectSort } from '@/services/decks'
 import { decksActions } from '@/services/decks/decks.slice.ts'
@@ -11,7 +10,6 @@ import { useAppDispatch, useAppSelector } from '@/services/store.ts'
 export const DeckTable: FC<{ items: Deck[] | undefined }> = ({ items }) => {
   const dispatch = useAppDispatch()
   const sort = useAppSelector(selectSort)
-  // const [sort, setSort] = useState<Sort>(null)
   const handleSort = (sort: Sort) => {
     dispatch(decksActions.changeOrderBy({ sort }))
   }
@@ -36,7 +34,7 @@ export const DeckTable: FC<{ items: Deck[] | undefined }> = ({ items }) => {
 
   return (
     <Table.Root>
-      <Header columns={columns} sort={sort} onSort={handleSort} />
+      <Table.Header columns={columns} sort={sort} onSort={handleSort} />
       <Table.Body>
         {items &&
           items.map(desk => (

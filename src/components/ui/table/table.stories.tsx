@@ -124,10 +124,8 @@ export const WithMapMethod = {
 }
 export const WithSort = {
   render: (args: any) => {
-    const [sort, setSort] = useState<Sort>(null)
+    const [sort, setSort] = useState<Sort>(undefined)
     const sortString: string | null = sort ? `${sort?.key}-${sort?.direction}` : null
-
-    console.log(sort, sortString)
 
     const columns: Column[] = [
       {
@@ -254,9 +252,7 @@ const data2 = [
 
 export const WithSort2 = {
   render: () => {
-    const [sort, setSort] = useState<Sort>(null)
-
-    console.log(sort)
+    const [sort, setSort] = useState<Sort>(undefined)
 
     const handleSort = (key: string) => {
       if (sort && sort.key === key) {

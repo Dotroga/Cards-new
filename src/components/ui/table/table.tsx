@@ -1,10 +1,9 @@
 import { ComponentProps, ComponentPropsWithoutRef, FC } from 'react'
 
-import { BiChevronUp } from 'react-icons/bi'
-
 import { StyledTable } from './table.styled'
 
 import { Typography } from '@/components'
+import { ArrowIcon } from '@/components/icons/arrow.tsx'
 import { Sort } from '@/services/common/types'
 
 export type RootProps = ComponentPropsWithoutRef<'table'>
@@ -30,11 +29,9 @@ export const Header: FC<
     'children'
   >
 > = ({ columns, sort, onSort, ...restProps }) => {
-  const handleSort = (key: string, sortable?: boolean) => () => {
-    if (!onSort || !sortable) return
-
+  const handleSort = (key: string) => () => {
+    if (!onSort) return
     if (sort?.key !== key) return onSort({ key, direction: 'asc' })
-
     if (sort.direction === 'desc') return onSort(undefined)
 
     return onSort({
@@ -46,10 +43,10 @@ export const Header: FC<
   return (
     <Head {...restProps}>
       <Row>
-        {columns.map(({ title, key, sortable }) => (
-          <HeadCell key={key} onClick={handleSort(key, sortable)} sortable={sortable}>
+        {columns.map(({ title, key }) => (
+          <HeadCell key={key} onClick={handleSort(key)}>
             {title}
-            {sort?.key === key ? <BiChevronUp /> : ''}
+            {sort && sort.key === key && <ArrowIcon visible={sort.direction !== 'asc'} />}
           </HeadCell>
         ))}
       </Row>
