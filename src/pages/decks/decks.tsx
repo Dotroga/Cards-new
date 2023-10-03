@@ -8,6 +8,7 @@ import {
   selectItemsPerPage,
   selectMax,
   selectMin,
+  selectOrderBy,
   selectSearchByName,
   useGetDecksQuery,
 } from '@/services/decks'
@@ -19,8 +20,7 @@ export const Decks = () => {
   const searchByName = useAppSelector(selectSearchByName)
   const maxCardsCount = useAppSelector(selectMax)
   const minCardsCount = useAppSelector(selectMin)
-
-  // const dispatch = useAppDispatch()
+  const orderBy = useAppSelector(selectOrderBy)
 
   const { data, isLoading } = useGetDecksQuery({
     itemsPerPage,
@@ -28,9 +28,10 @@ export const Decks = () => {
     name: searchByName,
     minCardsCount,
     maxCardsCount,
+    orderBy,
   })
 
-  // // const [initializeQuery, { data, isloading }] = useLazyGetDecksQuery() // запрос по команде
+  // const [initializeQuery, { data, isloading }] = useLazyGetDecksQuery() // запрос по команде
 
   if (isLoading) return <div>Loading...</div>
 

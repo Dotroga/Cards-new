@@ -2,6 +2,7 @@ import { ComponentPropsWithoutRef, FC } from 'react'
 
 import { Table } from './table'
 
+import { ArrowIcon } from '@/components/icons/arrow.tsx'
 import { Sort } from '@/services/common/types'
 export type Column = {
   key: string
@@ -35,7 +36,7 @@ export const Header: FC<
         {columns.map(({ title, key }) => (
           <Table.HeadCell key={key} onClick={handleSort(key)}>
             {title}
-            {sort && sort.key === key && <span>{sort.direction === 'asc' ? '▲' : '▼'}</span>}
+            {sort && sort.key === key && <ArrowIcon visible={sort.direction === 'asc'} />}
           </Table.HeadCell>
         ))}
       </Table.Row>

@@ -44,11 +44,6 @@ export type GetDeskArgs = {
   itemsPerPage?: number
 }
 
-export interface Author {
-  id: string
-  name: string
-}
-
 export type DecksResponse = PaginatedEntity<Deck> & {
   maxCardsCount: number
 }

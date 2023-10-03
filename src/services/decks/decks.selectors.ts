@@ -5,3 +5,4 @@ export const selectCurrentPage = (state: RootState) => state.decks.currentPage
 export const selectSearchByName = (state: RootState) => state.decks.searchByName
 export const selectMax = (state: RootState) => state.decks.maxCardsCount
 export const selectMin = (state: RootState) => state.decks.minCardsCount
+export const selectOrderBy = (state: RootState) => state.decks.orderBy

@@ -2,6 +2,7 @@ import { FC, memo, useRef, useState } from 'react'
 
 import styled from 'styled-components'
 
+import { ArrowIcon } from '@/components/icons/arrow.tsx'
 import { SelectWrapper } from '@/components/ui/select/Select.styled.ts'
 import { useOutsideClick } from '@/utils/useOutsideClick.ts'
 
@@ -33,10 +34,7 @@ export const Select: FC<SelectPropsType> = memo(props => {
     >
       <div className="visible" onClick={changeVisibility}>
         <div>{value}</div>
-        <div className="arrow-icon">
-          <span className="left-bar"></span>
-          <span className="right-bar"></span>
-        </div>
+        <ArrowIcon visible={visiblePopUp} />
       </div>
       {visiblePopUp && <Items arr={arr} onChange={selectingActive} />}
     </SelectWrapper>
