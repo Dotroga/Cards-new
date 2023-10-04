@@ -9,9 +9,9 @@ export const WrapperInput = styled.div<{ error?: string; disabled?: boolean }>(p
     width: 100%;
     min-width: 200px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     position: relative;
-
     input {
       outline: none;
       box-sizing: border-box;
@@ -49,16 +49,13 @@ export const WrapperInput = styled.div<{ error?: string; disabled?: boolean }>(p
     }
     .error {
       height: 24px;
-      position: absolute;
-      top: 68px;
     }
     svg {
       position: absolute;
-      top: 50%;
+      bottom: 32px;
       right: 15px;
       cursor: ${disabled && 'initial'};
       fill: ${disabled ? colors.dark_300 : colors.light_100};
-      transform: translate(0, -50%);
     }
   `
 })
