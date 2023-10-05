@@ -7,6 +7,9 @@ const authApi = baseApi.injectEndpoints({
         query: args => {
           return { url: 'v1/auth/me', method: 'GET', params: args }
         },
+        extraOptions: {
+          maxRetries: 0, // кол-во повторных запросов при ошибке, по дефолту стоит 1
+        },
       }),
       login: builder.mutation<any, any>({
         query: args => {

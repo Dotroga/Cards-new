@@ -1,6 +1,8 @@
 import { BaseQueryFn, FetchArgs, fetchBaseQuery, FetchBaseQueryError } from '@reduxjs/toolkit/query'
 import { Mutex } from 'async-mutex'
 
+import { globalNavigate } from '@/utils/global-navigate.tsx'
+
 const baseUrl = 'https://api.flashcards.andrii.es'
 
 // Create a new mutex
@@ -20,7 +22,6 @@ export const customFetchBase: BaseQueryFn<
   await mutex.waitForUnlock()
   let result = await baseQuery(args, api, extraOptions)
 
-  console.log(result)
   if (result.error?.status === 401) {
     if (!mutex.isLocked()) {
       const release = await mutex.acquire()
@@ -36,7 +37,7 @@ export const customFetchBase: BaseQueryFn<
           // Retry the initial query
           result = await baseQuery(args, api, extraOptions)
         } else {
-          // window.location.href = '/login'
+          globalNavigate('/login')
         }
       } finally {
         // release must be called once the mutex should be released again.

@@ -8,7 +8,7 @@ import { z } from 'zod'
 
 import { Button, Card, ControlledCheckbox, Input, loginSchema, Typography } from '@/components'
 
-type LoginFormSchema = z.infer<typeof loginSchema>
+export type LoginFormSchema = z.infer<typeof loginSchema>
 type FormType<T> = {
   onSubmit: (data: T) => void
 }
