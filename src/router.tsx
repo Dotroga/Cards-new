@@ -40,7 +40,6 @@ function PrivateRoutes() {
   const { data, isLoading } = useMeQuery({})
 
   if (isLoading) return <div>Loading...</div>
-  const isAuthenticated = !!data
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/login" />
+  return data ? <Outlet /> : <Navigate to="/login" />
 }
