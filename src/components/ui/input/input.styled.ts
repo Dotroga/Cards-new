@@ -48,7 +48,9 @@ export const WrapperInput = styled.div<{ error?: string; disabled?: boolean }>(p
       color: ${colors.dark_100};
     }
     .error {
-      height: 24px;
+      height: 30px;
+      position: absolute;
+      top: 65px;
     }
     svg {
       position: absolute;

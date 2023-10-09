@@ -10,7 +10,7 @@ export const authApi = createApi({
   endpoints: builder => ({
     me: builder.query<User | null, void>({
       query: () => `auth/me`,
-      extraOptions: { maxRetries: false },
+      extraOptions: { maxRetries: 1 },
       providesTags: ['Me'],
     }),
     login: builder.mutation<any, any>({

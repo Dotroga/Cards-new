@@ -25,16 +25,23 @@ export const SignIn: FC<FormType<LoginFormSchema>> = ({ onSubmit }) => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Typography as={'large'}>Sign In</Typography>
+      <Typography className="signIn" as={'large'}>
+        Sign In
+      </Typography>
       <DevTool control={control} />
       <Input {...register('email')} error={errors.email?.message} />
       <Input {...register('password')} type="password" error={errors.password?.message} />
       <ControlledCheckbox name="rememberMe" control={control}>
-        Remember me
+        <Typography as={'body2'}>Remember me</Typography>
       </ControlledCheckbox>
-      <Button type="submit">Sign In</Button>
-      <Typography as={'body2'}>{`Don't have an account?`}</Typography>
-      <Typography className="signUpLink" as={'link'} href={'/'}>
+      <Typography as={'body2'} className="forgotPassword">
+        Forgot Password?
+      </Typography>
+      <Button type="submit" fullWidth={true}>
+        Sign In
+      </Button>
+      <Typography className="notAccount" as={'body2'}>{`Don't have an account?`}</Typography>
+      <Typography className="signUpLink" as={'link'} href={'/sign-up'}>
         Sign Up
       </Typography>
     </Form>
@@ -46,7 +53,18 @@ const Form = styled(Card)`
   width: 420px;
   height: 528px;
   padding: 33px 36px 29px 36px;
+  .signIn {
+    margin-bottom: 27px;
+  }
   .signUpLink {
     color: ${({ theme }) => theme.colors.accent_500};
+  }
+  .forgotPassword {
+    margin-left: auto;
+    margin-bottom: 66px;
+  }
+  .notAccount {
+    color: ${({ theme }) => theme.colors.light_900};
+    margin: 20px 0 11px 0;
   }
 `
