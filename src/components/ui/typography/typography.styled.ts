@@ -25,7 +25,6 @@ export const TypographyStaled = styled.p<TypographyStaledType>(props => {
       line-height: ${lineHeight};
       color: ${color};
       gap: 10px;
-      user-select: none;
     `
   }
 

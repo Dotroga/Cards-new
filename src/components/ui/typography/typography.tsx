@@ -1,11 +1,11 @@
-import { ComponentPropsWithoutRef, ElementType } from 'react'
+import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
 import { TypographyStaled } from './typography.styled.ts'
 
 export type TypographyPropsType<T extends ElementType = 'a'> = {
   className?: string
   as: keyof typeof components
-  children?: React.ReactNode
+  children?: ReactNode
 } & ComponentPropsWithoutRef<T>
 export type TypographyStaledType = {
   component: keyof typeof components
