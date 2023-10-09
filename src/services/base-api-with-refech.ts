@@ -31,7 +31,7 @@ export const customFetchBase: BaseQueryFn<
 
       try {
         const refreshResult = await baseQuery(
-          { url: 'v1/auth/refresh-token', method: 'POST' },
+          { url: 'auth/refresh-token', method: 'POST' },
           api,
           extraOptions
         )

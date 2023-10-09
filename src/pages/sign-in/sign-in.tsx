@@ -6,7 +6,7 @@ import { useLoginMutation, useMeQuery } from '@/services/auth/auth.ts'
 export const SignInPage = () => {
   const navigate = useNavigate()
   const { data, isLoading, refetch } = useMeQuery()
-  const [signIn, { loading, error }] = useLoginMutation()
+  const [signIn] = useLoginMutation()
 
   if (isLoading) return <div>Loading...</div>
   if (data) return <Navigate to={'/'} />

@@ -19,7 +19,7 @@ export const Input = forwardRef<HTMLInputElement, PropsInputType>((props, ref) =
   const handleTogglePassword = () => setShowPass(!showPass)
 
   return (
-    <WrapperInput error={error} disabled={disabled}>
+    <WrapperInput error={error} disabled={disabled} className="textField">
       <Typography className="label" as="body2">
         {upperName}
       </Typography>
