@@ -6,8 +6,8 @@ const initialState = {
   currentPage: 1,
   itemsPerPage: 10,
   searchByName: undefined as undefined | string,
-  minCardsCount: undefined as undefined | number,
-  maxCardsCount: undefined as undefined | number,
+  minCardsCount: 0 as undefined | number,
+  maxCardsCount: 30 as undefined | number,
   sort: undefined as Sort,
 }
 
