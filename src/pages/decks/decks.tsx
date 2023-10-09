@@ -41,7 +41,7 @@ export const Decks = () => {
 
   return (
     <DecksWrapper className="Decks">
-      <Button onClick={logout}>Log Out</Button>
+      <Button onClick={() => logout()}>Log Out</Button>
       <AddNewPack />
       <DecksNav />
       <DeckTable items={data?.items} />

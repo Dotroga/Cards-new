@@ -2,16 +2,19 @@ import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 import { app } from '@/services/app/app.slice.ts'
-import { baseApi } from '@/services/base-api.ts'
+import { authApi } from '@/services/auth/auth.ts'
+import { decksApi } from '@/services/decks'
 import { decks } from '@/services/decks/decks.slice.ts'
 
 export const store = configureStore({
   reducer: {
-    [baseApi.reducerPath]: baseApi.reducer,
+    [authApi.reducerPath]: authApi.reducer,
+    [decksApi.reducerPath]: decksApi.reducer,
     decks,
     app,
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(baseApi.middleware),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(authApi.middleware).concat(decksApi.middleware),
 })
 
 export type AppDispatch = typeof store.dispatch

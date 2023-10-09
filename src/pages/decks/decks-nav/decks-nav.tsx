@@ -9,7 +9,7 @@ import { useAppDispatch } from '@/services/store.ts'
 
 export const DecksNav = () => {
   const dispatch = useAppDispatch()
-  const [range, setRange] = useState([0, 25])
+  const [range, setRange] = useState([0, 30])
 
   useEffect(() => {
     const id = setTimeout(() => {

@@ -37,7 +37,7 @@ export const Router = () => {
 }
 
 function PrivateRoutes() {
-  const { data, isLoading } = useMeQuery({})
+  const { data, isLoading } = useMeQuery()
 
   if (isLoading) return <div>Loading...</div>
 

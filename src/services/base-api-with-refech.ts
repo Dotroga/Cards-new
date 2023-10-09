@@ -3,7 +3,7 @@ import { Mutex } from 'async-mutex'
 
 import { globalNavigate } from '@/utils/global-navigate.tsx'
 
-const baseUrl = 'https://api.flashcards.andrii.es'
+const baseUrl = 'https://api.flashcards.andrii.es/v1/'
 
 // Create a new mutex
 const mutex = new Mutex()
@@ -55,5 +55,3 @@ export const customFetchBase: BaseQueryFn<
 
   return result
 }
-
-export default customFetchBase
