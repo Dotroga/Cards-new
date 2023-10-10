@@ -8,18 +8,18 @@ import { z } from 'zod'
 
 import { Button, Card, Input, signUpSchema, Typography } from '@/components'
 
-type LoginFormSchema = z.infer<typeof signUpSchema>
+export type SignUpFormSchema = z.infer<typeof signUpSchema>
 type FormType<T> = {
   onSubmit: (data: T) => void
 }
 
-export const SignUp: FC<FormType<LoginFormSchema>> = ({ onSubmit }) => {
+export const SignUp: FC<FormType<SignUpFormSchema>> = ({ onSubmit }) => {
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<LoginFormSchema>({
+  } = useForm<SignUpFormSchema>({
     resolver: zodResolver(signUpSchema),
   })
 
@@ -36,7 +36,7 @@ export const SignUp: FC<FormType<LoginFormSchema>> = ({ onSubmit }) => {
       />
       <Button type="submit">Sign Up</Button>
       <Typography as={'body2'}>Already have an account?</Typography>
-      <Typography className="signUpLink" as={'link'} href={'/'}>
+      <Typography className="signUpLink" as={'link'} to={'/login'}>
         Sign In
       </Typography>
     </Form>
