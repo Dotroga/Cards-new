@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/dist/query/react'
 
-import { User } from '@/services/auth/types.ts'
+import { LoginArgs, SignUpArgs, User } from '@/services/auth/types.ts'
 import { customFetchBase } from '@/services/base-api-with-refech.ts'
 
 export const authApi = createApi({
@@ -13,11 +13,18 @@ export const authApi = createApi({
       extraOptions: { maxRetries: 1 },
       providesTags: ['Me'],
     }),
-    login: builder.mutation<any, any>({
+    login: builder.mutation<unknown, LoginArgs>({
       query: args => {
         return { url: 'auth/login', method: 'POST', params: args }
       },
       invalidatesTags: ['Me'],
+    }),
+    signUp: builder.mutation<any, Partial<SignUpArgs>>({
+      query: body => ({
+        url: `auth/sign-up`,
+        method: 'POST',
+        body,
+      }),
     }),
     logout: builder.mutation<unknown, void>({
       query: () => ({
@@ -41,4 +48,4 @@ export const authApi = createApi({
   }),
 })
 
-export const { useLoginMutation, useMeQuery, useLogoutMutation } = authApi
+export const { useLoginMutation, useMeQuery, useSignUpMutation, useLogoutMutation } = authApi

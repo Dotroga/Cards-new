@@ -3,7 +3,6 @@ import { FC } from 'react'
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { z } from 'zod'
 
@@ -42,11 +41,9 @@ export const SignIn: FC<FormType<LoginFormSchema>> = ({ onSubmit }) => {
         Sign In
       </Button>
       <Typography className="notAccount" as={'body2'}>{`Don't have an account?`}</Typography>
-      <Link to={'/sign-up'}>
-        <Typography className="signUpLink" as={'link'}>
-          Sign Up
-        </Typography>
-      </Link>
+      <Typography className="signUpLink" as={'link'} to={'/sign-up'}>
+        Sign Up
+      </Typography>
     </Form>
   )
 }

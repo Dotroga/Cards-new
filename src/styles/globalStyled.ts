@@ -10,12 +10,14 @@ export const GlobalStyled = createGlobalStyle`
 
   html > body > #root > div {
     height: 100vh;
+    background-color: #000000;
   }
 
   body {
     font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #000000;
 
     div#root {
       height: 100vh;
