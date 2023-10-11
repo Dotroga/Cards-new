@@ -1,8 +1,6 @@
 import { BaseQueryFn, FetchArgs, fetchBaseQuery, FetchBaseQueryError } from '@reduxjs/toolkit/query'
 import { Mutex } from 'async-mutex'
 
-import { globalNavigate } from '@/utils/global-navigate.tsx'
-
 const baseUrl = 'https://api.flashcards.andrii.es/v1/'
 
 // Create a new mutex
@@ -37,13 +35,9 @@ export const customFetchBase: BaseQueryFn<
         )
 
         if (refreshResult?.meta?.response?.status == 204) {
-          // Retry the initial query
           result = await baseQuery(args, api, extraOptions)
-        } else {
-          globalNavigate('/login')
         }
       } finally {
-        // release must be called once the mutex should be released again.
         release()
       }
     } else {
