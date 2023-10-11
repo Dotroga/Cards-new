@@ -22,7 +22,6 @@ export const GlobalStyled = createGlobalStyle`
     div#root {
       height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       min-height: 528px;
