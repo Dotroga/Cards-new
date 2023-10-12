@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
 import { SignUp, SignUpFormSchema } from '@/components'
+import { Routes } from '@/router/path.ts'
 import { useSignUpMutation } from '@/services/auth/auth.ts'
 
 export const SignUpPage = () => {
@@ -12,7 +13,7 @@ export const SignUpPage = () => {
     login(rest)
       .unwrap()
       .then(() => {
-        navigate('/login')
+        navigate(Routes.SignIn)
       })
   }
 

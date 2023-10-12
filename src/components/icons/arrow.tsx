@@ -25,7 +25,7 @@ export const Wrapper = styled.div<{ visible?: boolean }>(props => {
       display: inline-block;
       width: 14px;
       height: 14px;
-      margin-right: 11px;
+      margin-right: 1px;
       border-radius: 5px;
     }
   

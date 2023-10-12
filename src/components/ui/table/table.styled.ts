@@ -14,7 +14,7 @@ const Head = styled.th<HeadCellProps>(props => {
   const typography = props.theme.typography
 
   return css`
-    padding: 6px 24px;
+    padding: 6px 18px;
     font-size: ${typography.fontSize_S};
     font-weight: ${typography.fontWeightRegular};
     line-height: ${typography.lineHeight_M};
@@ -39,7 +39,7 @@ const Cell = styled.td<CellProps>(props => {
   const typography = props.theme.typography
 
   return css`
-    padding: 6px 24px;
+    padding: 6px 18px;
     font-weight: ${typography.fontWeightRegular};
     font-size: ${typography.fontSize_S};
     line-height: ${typography.lineHeight_M};
