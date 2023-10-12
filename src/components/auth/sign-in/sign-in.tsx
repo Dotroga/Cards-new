@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import { z } from 'zod'
 
 import { Button, Card, ControlledCheckbox, Input, loginSchema, Typography } from '@/components'
+import { Routes } from '@/router/path.ts'
 
 export type LoginFormSchema = z.infer<typeof loginSchema>
 type FormType<T> = {
@@ -41,7 +42,7 @@ export const SignIn: FC<FormType<LoginFormSchema>> = ({ onSubmit }) => {
         Sign In
       </Button>
       <Typography className="notAccount" as={'body2'}>{`Don't have an account?`}</Typography>
-      <Typography className="signUpLink" as={'link'} to={'/sign-up'}>
+      <Typography className="signUpLink" as={'link'} to={Routes.SignUp}>
         Sign Up
       </Typography>
     </Form>

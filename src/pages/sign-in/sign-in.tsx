@@ -2,6 +2,7 @@ import { Navigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { LoginFormSchema, SignIn } from '@/components'
+import { Routes } from '@/router/path.ts'
 import { useLoginMutation, useMeQuery } from '@/services/auth/auth.ts'
 
 export const SignInPage = () => {
@@ -11,7 +12,7 @@ export const SignInPage = () => {
   if (data) {
     toast(`Hello ${data.name}`)
 
-    return <Navigate to={'/'} />
+    return <Navigate to={Routes.Decks} />
   }
 
   const handleSignIn = (args: LoginFormSchema) => {

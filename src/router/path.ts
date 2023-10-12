@@ -1,9 +1,10 @@
-export const PATH = {
-  LOGIN: '/sign-in',
-  REGISTRATION: '/sign-up',
-  FORGOT_PASSWORD: '/forgot-password',
-  CHECK_EMAIL: '/check-email',
-  SET_NEW_PASSWORD: '/set-new-password/:token',
-  DECKS: '/',
-  NOT_FOUND: '404',
+export enum Routes {
+  Decks = '/',
+  SignIn = '/sign-in',
+  SignUp = '/sign-up',
+  ForgotPassword = '/forgot-password',
+  CreateNewPassword = '/create-new-password',
+  Profile = '/profile',
+  Unauthorized = '/401',
+  NotFound = '/404',
 }
