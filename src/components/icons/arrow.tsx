@@ -14,13 +14,13 @@ export const Wrapper = styled.div<{ visible?: boolean }>(props => {
   const colors = props.theme.colors
 
   return css`
- 
     height: 22px;
     display: flex;
     align-items: center;
     position: relative;
     top: 6px;
     cursor: pointer;
+    
     span {
       display: inline-block;
       width: 14px;
