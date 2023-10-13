@@ -132,24 +132,29 @@ export const WithSort = {
         key: 'title',
         title: 'Name',
         sortable: true,
+        width: '25%',
       },
       {
         key: 'cardsCount',
         title: 'Cards',
         sortable: true,
+        width: '25%',
       },
       {
         key: 'updated',
         title: 'Last Updated',
+        width: '25%',
       },
       {
         key: 'createdBy',
         title: 'Created by',
         sortable: true,
+        width: '25%',
       },
       {
         key: 'options',
         title: '',
+        width: '25%',
       },
     ]
     const data1 = [
@@ -271,22 +276,27 @@ export const WithSort2 = {
       {
         key: 'name',
         title: 'Name',
+        width: '25%',
       },
       {
         key: 'cardsCount',
         title: 'Cards',
+        width: '25%',
       },
       {
         key: 'updated',
         title: 'Last Updated',
+        width: '25%',
       },
       {
         key: 'createdBy',
         title: 'Created by',
+        width: '25%',
       },
       {
         key: 'options',
         title: '',
+        width: '25%',
       },
     ]
 

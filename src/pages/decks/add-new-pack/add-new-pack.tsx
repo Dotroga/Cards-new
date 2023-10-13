@@ -26,6 +26,7 @@ export const AddNewPack = () => {
 }
 
 const Wrapper = styled.div`
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   width: 100%;
