@@ -55,7 +55,7 @@ const Form = styled(Card)`
   height: 528px;
   padding: 33px 36px 29px 36px;
   .signIn {
-    margin-bottom: 27px;
+    margin-bottom: 20px;
   }
   .signUpLink {
     color: ${({ theme }) => theme.colors.accent_500};

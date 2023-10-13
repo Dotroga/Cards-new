@@ -12,20 +12,25 @@ const Table = styled.table`
 const Head = styled.th<HeadCellProps>(props => {
   const sortable = props.sortable
   const typography = props.theme.typography
+  const width = props.width
 
   return css`
+    width: ${width};
     padding: 6px 18px;
     font-size: ${typography.fontSize_S};
     font-weight: ${typography.fontWeightRegular};
     line-height: ${typography.lineHeight_M};
-    background-color: ${({ theme }) => theme.colors.dark_500};
+    background-color: ${({ theme }) => (sortable ? theme.colors.dark_100 : theme.colors.dark_500)};
     user-select: none;
     cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.dark_300};
+    }
     span {
       user-select: none;
-      display: flex;
       gap: 4px;
-      align-items: center;
       cursor: ${sortable ? 'pointer' : 'default'};
     }
 
@@ -50,7 +55,7 @@ const Cell = styled.td<CellProps>(props => {
 const Empty = styled.div`
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 25%;
 `
 
 export const StyledTable = {
