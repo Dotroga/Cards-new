@@ -4,7 +4,11 @@ export const DecksWrapper = styled.div`
   display: flex;
   box-sizing: border-box;
   max-width: 1300px;
-  min-width: 940px;
+  transition: 0.5s;
+  @media (max-width: 800px) {
+    padding: 10px;
+  }
+  //min-width: 940px;
   width: 100%;
   flex-direction: column;
   align-items: center;
