@@ -17,18 +17,26 @@ export const DeckTable: FC<{ items: Deck[] | undefined }> = ({ items }) => {
     {
       key: 'name',
       title: 'Name',
+      sortable: false,
+      width: '40%',
     },
     {
       key: 'cardsCount',
       title: 'Cards',
+      sortable: false,
+      width: '18%',
     },
     {
       key: 'updated',
       title: 'Last Updated',
+      sortable: false,
+      width: '18%',
     },
     {
       key: 'author.name',
       title: 'Created by',
+      sortable: false,
+      width: '24%',
     },
   ] as Column[]
 

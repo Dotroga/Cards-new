@@ -24,7 +24,7 @@ export const SignUp: FC<FormType<SignUpFormSchema>> = ({ onSubmit }) => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Typography className={'Header'} as={'large'}>
+      <Typography className={'header'} as={'large'}>
         Sign Up
       </Typography>
       <Input {...register('email')} error={errors.email?.message} />
@@ -50,12 +50,15 @@ const Form = styled(Card)`
   width: 420px;
   height: 528px;
   padding: 33px 36px 29px 36px;
+  .header {
+    margin-bottom: 20px;
+  }
   .signUpLink {
     color: ${({ theme }) => theme.colors.accent_500};
     margin-top: 11px;
   }
   button {
-    margin-top: 50px;
+    margin-top: 42px;
     margin-bottom: 20px;
   }
 `
