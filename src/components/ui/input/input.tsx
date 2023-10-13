@@ -7,9 +7,10 @@ export type PropsInputType = {
   type?: 'text' | 'number' | 'email' | 'password' | 'search'
   error?: string | undefined
   onValueChange?: (value: string) => void
+  width?: string
 } & ComponentPropsWithoutRef<'input'>
 export const Input = forwardRef<HTMLInputElement, PropsInputType>((props, ref) => {
-  const { onChange, disabled, onValueChange, type, name, error, ...restProps } = props
+  const { onChange, disabled, width, onValueChange, type, name, error, ...restProps } = props
   const upperName = name && name.charAt(0).toUpperCase() + name.slice(1)
   const [showPass, setShowPass] = useState(type !== 'password')
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -19,7 +20,7 @@ export const Input = forwardRef<HTMLInputElement, PropsInputType>((props, ref) =
   const handleTogglePassword = () => setShowPass(!showPass)
 
   return (
-    <WrapperInput error={error} disabled={disabled} className="textField">
+    <WrapperInput error={error} disabled={disabled} className="textField" width={width}>
       <Typography className="label" as="body2">
         {upperName}
       </Typography>

@@ -40,13 +40,31 @@ export const DecksNav = () => {
 
 const DecksNavWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
+  flex-direction: row;
   width: 100%;
-  gap: 24px;
-  @media (max-width: 1000px) {
-    gap: 10px;
-  }
+  gap: 20px;
+  transition: 0.5s;
   @media (min-width: 1300px) {
     gap: 36px;
+  }
+  @media (max-width: 1000px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media (max-width: 650px) {
+    justify-content: space-between;
+    gap: 5px;
+    div:nth-child(2) {
+      order: 4;
+    }
+    div:nth-child(3) {
+      order: 4;
+    }
+    .textField {
+      width: 320px;
+    }
   }
   align-items: flex-end;
   margin-bottom: 36px;
