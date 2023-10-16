@@ -10,7 +10,7 @@ const Table = styled.table`
 `
 
 const Head = styled.th<HeadCellProps>(props => {
-  const sortable = props.sortable
+  const sortable = props.$sortable
   const typography = props.theme.typography
   const width = props.width
 

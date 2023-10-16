@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components'
 
 type SelectStyledType = {
-  visible?: boolean
+  $visible?: boolean
 }
 
 export const SelectWrapper = styled.div<SelectStyledType>(props => {
-  const visible = props.visible
+  const visible = props.$visible
   const colors = props.theme.colors
 
   return css`

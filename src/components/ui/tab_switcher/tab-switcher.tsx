@@ -21,7 +21,7 @@ export const TabSwitcher: FC<TabSwitcherPropsType> = props => {
           value={i}
           disabled={disabled}
           onClick={() => onClick(i)}
-          active={i === value ? 'true' : 'false'}
+          $active={i === value ? 'true' : 'false'}
         >
           <Typography className={'Text'} as={'body1'}>
             {i}
@@ -31,7 +31,7 @@ export const TabSwitcher: FC<TabSwitcherPropsType> = props => {
     </ToggleGroup>
   )
 }
-type StyledProps = Omit<TabSwitcherPropsType, 'array'> & { active: string }
+type StyledProps = Omit<TabSwitcherPropsType, 'array'> & { $active: string }
 
 const ToggleGroup = styled.div`
   display: inline-flex;
@@ -43,7 +43,7 @@ const ToggleGroup = styled.div`
 `
 
 const ToggleItem = styled.span<StyledProps>(props => {
-  const { active, disabled, theme } = props
+  const { $active, disabled, theme } = props
 
   return css`
     display: flex;
@@ -56,15 +56,15 @@ const ToggleItem = styled.span<StyledProps>(props => {
     cursor: pointer;
     transition: 0.3s;
     white-space: nowrap;
-    ${active === 'true' &&
+    ${$active === 'true' &&
     css`
       box-shadow: 0 0 0 1px ${theme.colors.accent_500};
     `};
-    background: ${active === 'true' ? theme.colors.accent_500 : 'black'};
+    background: ${$active === 'true' ? theme.colors.accent_500 : 'black'};
     border: none;
     user-select: none;
     &:hover {
-      background: ${active === 'false' && !disabled && theme.colors.dark_300};
+      background: ${$active === 'false' && !disabled && theme.colors.dark_300};
     }
     ${disabled &&
     css`

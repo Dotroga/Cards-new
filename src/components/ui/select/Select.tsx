@@ -29,7 +29,7 @@ export const Select: FC<SelectPropsType> = memo(props => {
     <SelectWrapper
       className="select"
       ref={ref}
-      visible={visiblePopUp}
+      $visible={visiblePopUp}
       onBlur={() => setVisiblePopUp(false)}
     >
       <div className="visible" onClick={changeVisibility}>

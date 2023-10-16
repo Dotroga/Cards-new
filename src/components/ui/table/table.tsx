@@ -44,7 +44,7 @@ export const Header: FC<
     <Head {...restProps}>
       <Row>
         {columns.map(({ title, key, width }) => (
-          <HeadCell key={key} onClick={handleSort(key)} sortable={sort?.key === key} width={width}>
+          <HeadCell key={key} onClick={handleSort(key)} $sortable={sort?.key === key} width={width}>
             {title}
             {sort && sort.key === key && <ArrowIcon visible={sort.direction !== 'asc'} />}
           </HeadCell>
@@ -66,7 +66,7 @@ export const Row: FC<RowProps> = props => {
 }
 
 export type HeadCellProps = ComponentPropsWithoutRef<'th'> & {
-  sortable?: boolean
+  $sortable?: boolean
   width?: string
 }
 

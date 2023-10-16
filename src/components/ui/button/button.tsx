@@ -11,10 +11,10 @@ export type ButtonProps<T extends ElementType = 'button'> = {
 } & ComponentPropsWithoutRef<T>
 
 export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) => {
-  const { variant = 'primary', children, ...rest } = props
+  const { variant = 'primary', fullWidth, children, ...rest } = props
 
   return (
-    <ButtonStyled variant={variant} {...rest}>
+    <ButtonStyled $variant={variant} $fullWidth={fullWidth} {...rest}>
       <Typography as="subtitle2">{children}</Typography>
     </ButtonStyled>
   )

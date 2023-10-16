@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components'
 
-import { ButtonProps } from './button.tsx'
-
-export const ButtonStyled = styled.button<ButtonProps>(props => {
+export const ButtonStyled = styled.button<{
+  $variant?: 'primary' | 'secondary' | 'tertiary' | 'link'
+  $fullWidth?: boolean
+}>(props => {
   const colors = props.theme.colors
-  const { variant, fullWidth } = props
+  const { $variant, $fullWidth } = props
 
   return css`
     display: flex;
@@ -28,7 +29,7 @@ export const ButtonStyled = styled.button<ButtonProps>(props => {
     &:disabled {
       cursor: initial;
     }
-    ${variant === 'primary' &&
+    ${$variant === 'primary' &&
     css`
       background: ${colors.accent_500};
       box-shadow: ${colors.accent_900};
@@ -43,7 +44,7 @@ export const ButtonStyled = styled.button<ButtonProps>(props => {
         background: ${colors.accent_900};
       }
     `}
-    ${variant === 'secondary' &&
+    ${$variant === 'secondary' &&
     css`
       background: ${colors.dark_300};
       &:hover {
@@ -57,7 +58,7 @@ export const ButtonStyled = styled.button<ButtonProps>(props => {
         background: ${colors.dark_300};
       }
     `}
-    ${variant === 'tertiary' &&
+    ${$variant === 'tertiary' &&
     css`
       border: 1px solid ${colors.accent_500};
       color: ${colors.accent_500};
@@ -75,7 +76,7 @@ export const ButtonStyled = styled.button<ButtonProps>(props => {
         color: ${colors.accent_900};
       }
     `}
-    ${variant === 'link' &&
+    ${$variant === 'link' &&
     css`
       color: ${colors.accent_500};
       border-radius: 1.5rem;
@@ -89,7 +90,7 @@ export const ButtonStyled = styled.button<ButtonProps>(props => {
         color: ${colors.accent_900};
       }
     `}
-    ${fullWidth &&
+    ${$fullWidth &&
     css`
       width: 100%;
     `}
