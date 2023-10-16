@@ -29,7 +29,7 @@ export const TypographyStaled = styled.p<TypographyStaledType>(props => {
     `
   }
 
-  switch (props.component) {
+  switch (props.$component) {
     case 'large':
       return handler(fontSize_XXL, fontWeightBold, lineHeight_L)
     case 'h1':

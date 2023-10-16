@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const DecksWrapper = styled.div`
+export const DecksWrapper = styled.main`
   display: flex;
   box-sizing: border-box;
   max-width: 1300px;

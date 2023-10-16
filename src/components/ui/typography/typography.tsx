@@ -16,7 +16,7 @@ export type TypographyPropsType<T extends ElementPlusLink> = {
 } & ComponentPropsWithoutRef<T>
 
 export type TypographyStaledType = {
-  component: keyof typeof components
+  $component: keyof typeof components
 }
 
 export const Typography = <T extends ElementPlusLink>(props: TypographyPropsType<T>) => {
@@ -24,7 +24,7 @@ export const Typography = <T extends ElementPlusLink>(props: TypographyPropsType
   const Component: ElementPlusLink =
     as !== 'link' && 'link2' ? (components[as] as ElementType) : Link
 
-  return <TypographyStaled as={Component} component={as} {...rest} />
+  return <TypographyStaled as={Component} $component={as} {...rest} />
 }
 
 const components = {

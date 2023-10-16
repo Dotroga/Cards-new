@@ -6,6 +6,7 @@ import {
   Navigate,
 } from 'react-router-dom'
 
+import { Header } from '@/components/Header/Header.tsx'
 import { Unauthorized } from '@/pages/401/unauthorized.tsx'
 import { Decks } from '@/pages/decks/decks.tsx'
 import { SignInPage } from '@/pages/sign-in/sign-in.tsx'
@@ -52,5 +53,12 @@ function PrivateRoutes() {
 
   if (isLoading) return <div>Loading...</div>
 
-  return data ? <Outlet /> : <Navigate to={Routes.Unauthorized} />
+  return data ? (
+    <>
+      <Header />
+      <Outlet />
+    </>
+  ) : (
+    <Navigate to={Routes.SignIn} />
+  )
 }
