@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import { styled, css } from 'styled-components'
 
 export const ButtonStyled = styled.button<{
   $variant?: 'primary' | 'secondary' | 'tertiary' | 'link'
@@ -9,7 +9,7 @@ export const ButtonStyled = styled.button<{
 
   return css`
     display: flex;
-    height: 36px;
+    height: 2.25rem;
     align-items: center;
     justify-content: center;
     gap: 0.625rem;

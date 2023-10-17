@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import { styled, css } from 'styled-components'
 
 import { CellProps, HeadCellProps } from '@/components/ui/table/table.tsx'
 
@@ -16,7 +16,10 @@ const Head = styled.th<HeadCellProps>(props => {
 
   return css`
     width: ${width};
-    padding: 6px 18px;
+    padding: 0.375rem 1.125rem;
+    @media (max-width: 800px) {
+      padding: 0.375rem 0.75rem;
+    }
     font-size: ${typography.fontSize_S};
     font-weight: ${typography.fontWeightRegular};
     line-height: ${typography.lineHeight_M};
@@ -44,7 +47,10 @@ const Cell = styled.td<CellProps>(props => {
   const typography = props.theme.typography
 
   return css`
-    padding: 6px 18px;
+    padding: 0.375rem 1.125rem;
+    @media (max-width: 800px) {
+      padding: 0.375rem 0.75rem;
+    }
     font-weight: ${typography.fontWeightRegular};
     font-size: ${typography.fontSize_S};
     line-height: ${typography.lineHeight_M};
