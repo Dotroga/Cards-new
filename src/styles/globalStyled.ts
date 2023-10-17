@@ -6,11 +6,16 @@ export const GlobalStyled = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: white;
+    font-size: 100%;
+    @media (max-width: 800px) {
+      font-size: 90%;
+    }
   }
 
   html > body > #root > div {
     height: 100vh;
     background-color: #000000;
+    
   }
 
   body {

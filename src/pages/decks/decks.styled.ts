@@ -4,7 +4,6 @@ export const DecksWrapper = styled.main`
   display: flex;
   box-sizing: border-box;
   max-width: 1300px;
-  transition: 0.5s;
   @media (max-width: 800px) {
     padding: 10px;
   }
