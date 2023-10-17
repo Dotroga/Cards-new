@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 
 import { Meta } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import { Column, Table } from './'
 
@@ -11,7 +12,7 @@ import { withThemeProvider } from '@/utils'
 export default {
   title: 'Components/Table',
   component: Table.Root,
-  decorators: [withThemeProvider],
+  decorators: [withThemeProvider, withRouter],
 } as Meta<typeof Table.Root>
 
 export const Default = {
