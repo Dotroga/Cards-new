@@ -16,9 +16,9 @@
 // }
 export const typography = {
   // line heights
-  lineHeight_S: '2.25rem',
+  lineHeight_S: '1rem',
   lineHeight_M: '1.5rem',
-  lineHeight_L: '1rem',
+  lineHeight_L: '2.25rem',
   // font sizeS
   fontSize_XS: '0.75rem',
   fontSize_S: '0.875rem',

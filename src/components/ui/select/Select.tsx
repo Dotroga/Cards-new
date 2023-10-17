@@ -1,7 +1,8 @@
 import { FC, memo, useRef, useState } from 'react'
 
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 
+import { Typography } from '@/components'
 import { ArrowIcon } from '@/components/icons/arrow.tsx'
 import { SelectWrapper } from '@/components/ui/select/Select.styled.ts'
 import { useOutsideClick } from '@/utils/useOutsideClick.ts'
@@ -33,7 +34,7 @@ export const Select: FC<SelectPropsType> = memo(props => {
       onBlur={() => setVisiblePopUp(false)}
     >
       <div className="visible" onClick={changeVisibility}>
-        <div>{value}</div>
+        <Typography as={'body1'}>{value}</Typography>
         <ArrowIcon visible={visiblePopUp} />
       </div>
       {visiblePopUp && <Items arr={arr} onChange={selectingActive} />}
@@ -63,7 +64,9 @@ const Item: FC<Omit<SelectPropsType, 'name' | 'arr'>> = props => {
     <Wrapper className="iconSelect" onClick={handler}>
       {value && (
         <>
-          <div className="text">{value}</div>
+          <Typography className="text" as={'body1'}>
+            {value}
+          </Typography>
         </>
       )}
     </Wrapper>

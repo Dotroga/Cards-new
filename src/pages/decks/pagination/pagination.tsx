@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 
 import { MyPagination, Typography } from '@/components'
 import { Select } from '@/components/ui/select'
@@ -19,9 +19,14 @@ export const DecksPagination = (props: { pagination: Pagination }) => {
   return (
     <Wrapper>
       <MyPagination count={totalPages} page={currentPage} onChange={changeCurrentPage} />
-      <Typography as={'body2'}>Show</Typography>
+      <Typography className="text-pagination" as={'body2'}>
+        Show
+      </Typography>
       <Select arr={[10, 15, 20, 30, 50]} value={itemsPerPage} onChange={changeItemsPerPage} />
-      <Typography as={'body2'}> on page</Typography>
+      <Typography className="text-pagination" as={'body2'}>
+        {' '}
+        on page
+      </Typography>
     </Wrapper>
   )
 }
@@ -30,4 +35,10 @@ const Wrapper = styled.div`
   display: flex;
   margin-top: 36px;
   gap: 15px;
+  @media (max-width: 600px) {
+    gap: 0;
+    .text-pagination {
+      display: none;
+    }
+  }
 `
