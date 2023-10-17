@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import { SignIn } from '@/components'
 import { withThemeProvider } from '@/utils/decorators.tsx'
@@ -6,7 +7,7 @@ import { withThemeProvider } from '@/utils/decorators.tsx'
 const meta = {
   title: 'Auth/SignIn',
   component: SignIn,
-  decorators: [withThemeProvider],
+  decorators: [withThemeProvider, withRouter],
   tags: ['autodocs'],
 } satisfies Meta<typeof SignIn>
 

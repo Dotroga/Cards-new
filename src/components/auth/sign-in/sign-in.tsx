@@ -3,7 +3,7 @@ import { FC } from 'react'
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 import { z } from 'zod'
 
 import { Button, Card, ControlledCheckbox, Input, loginSchema, Typography } from '@/components'

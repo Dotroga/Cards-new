@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import { Typography } from './typography.tsx'
 
@@ -7,7 +8,7 @@ import { withThemeProvider } from '@/utils/decorators.tsx'
 const meta = {
   title: 'Components/Typography',
   component: Typography,
-  decorators: [withThemeProvider],
+  decorators: [withThemeProvider, withRouter],
   tags: ['autodocs'],
 } as Meta<typeof Typography>
 
