@@ -35,7 +35,7 @@ export const SignIn: FC<FormType<LoginFormSchema>> = ({ onSubmit }) => {
       <ControlledCheckbox name="rememberMe" control={control}>
         <Typography as={'body2'}>Remember me</Typography>
       </ControlledCheckbox>
-      <Typography as={'body2'} className="forgotPassword">
+      <Typography as={'link'} className="forgotPassword" to={Routes.ForgotPassword}>
         Forgot Password?
       </Typography>
       <Button type="submit" fullWidth={true}>
@@ -63,6 +63,10 @@ const Form = styled(Card)`
   .forgotPassword {
     margin-left: auto;
     margin-bottom: 66px;
+    text-decoration: none;
+    &:hover {
+      color: ${({ theme }) => theme.colors.light_900};
+    }
   }
   .notAccount {
     color: ${({ theme }) => theme.colors.light_900};

@@ -19,3 +19,9 @@ export type SignUpArgs = {
   subject: string
   sendConfirmationEmail: false
 }
+
+export type ResendVerificationEmailArgs = {
+  html?: string
+  email: string
+  subject?: string
+}

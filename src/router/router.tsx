@@ -8,9 +8,10 @@ import {
 
 import { Header } from '@/components/Header/Header.tsx'
 import { Unauthorized } from '@/pages/401/unauthorized.tsx'
+import { ForgotPasswordPage } from '@/pages/auth/forgot-password/forgot-password-page.tsx'
+import { SignInPage } from '@/pages/auth/sign-in/sign-in.tsx'
+import { SignUpPage } from '@/pages/auth/sign-up/sign-up.tsx'
 import { Decks } from '@/pages/decks/decks.tsx'
-import { SignInPage } from '@/pages/sign-in/sign-in.tsx'
-import { SignUpPage } from '@/pages/sign-up/sign-up.tsx'
 import { Routes } from '@/router/path.ts'
 import { useMeQuery } from '@/services/auth/auth.ts'
 
@@ -26,6 +27,10 @@ const publicRoutes: RouteObject[] = [
   {
     path: Routes.Unauthorized,
     element: <Unauthorized />,
+  },
+  {
+    path: Routes.ForgotPassword,
+    element: <ForgotPasswordPage />,
   },
 ]
 

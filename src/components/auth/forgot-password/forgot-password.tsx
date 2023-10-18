@@ -8,21 +8,20 @@ import { z } from 'zod'
 import { Button, Card, Input, Typography } from '@/components'
 import { Routes } from '@/router/path.ts'
 
-type FormSchema = z.infer<typeof schema>
+export type ForgotPasswordSchema = z.infer<typeof schema>
 type FormType<T> = {
   onSubmit: (data: T) => void
 }
-
-export const schema = z.object({
+const schema = z.object({
   email: z.string().nonempty('Email is required').email(),
 })
 
-export const ForgotPassword: FC<FormType<FormSchema>> = ({ onSubmit }) => {
+export const ForgotPassword: FC<FormType<ForgotPasswordSchema>> = ({ onSubmit }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormSchema>({
+  } = useForm<ForgotPasswordSchema>({
     resolver: zodResolver(schema),
   })
 
