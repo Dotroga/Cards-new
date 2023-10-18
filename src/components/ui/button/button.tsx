@@ -1,10 +1,21 @@
-import { ComponentPropsWithoutRef, ElementType } from 'react'
+import {
+  ComponentPropsWithoutRef,
+  ElementType,
+  ForwardRefExoticComponent,
+  RefAttributes,
+} from 'react'
+
+import { LinkProps } from 'react-router-dom'
 
 import { ButtonStyled } from './button.styled.ts'
 
 import { Typography } from '@/components'
 
-export type ButtonProps<T extends ElementType = 'button'> = {
+export type ButtonProps<
+  T extends ElementType =
+    | 'button'
+    | ForwardRefExoticComponent<LinkProps & RefAttributes<HTMLAnchorElement>>,
+> = {
   as?: T
   variant?: 'primary' | 'secondary' | 'tertiary' | 'link'
   fullWidth?: boolean
