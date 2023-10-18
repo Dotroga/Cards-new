@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import { styled, css } from 'styled-components'
 
 export const WrapperInput = styled.div<{ error?: string; disabled?: boolean; width?: string }>(
   props => {
@@ -15,9 +15,10 @@ export const WrapperInput = styled.div<{ error?: string; disabled?: boolean; wid
       flex-direction: column;
       position: relative;
       input {
+        position: relative;
         outline: none;
         box-sizing: border-box;
-        height: 36px;
+        height: 2.25rem;
         transition: 0.5s;
         background: none;
         padding: 0 0.75rem;
@@ -56,8 +57,8 @@ export const WrapperInput = styled.div<{ error?: string; disabled?: boolean; wid
       }
       svg {
         position: absolute;
-        bottom: 32px;
-        right: 15px;
+        right: 1rem;
+        top: 2rem;
         cursor: ${disabled && 'initial'};
         fill: ${disabled ? colors.dark_300 : colors.light_100};
       }

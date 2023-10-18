@@ -1,5 +1,3 @@
-import { FC } from 'react'
-
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { styled } from 'styled-components'
@@ -13,11 +11,14 @@ type FormType<T> = {
   onSubmit: (data: T) => void
 }
 
-export const schema = z.object({
-  email: z.string().nonempty('Email is required').email(),
+const schema = z.object({
+  password: z
+    .string()
+    .nonempty('Password is required')
+    .min(3, 'Password cannot be shorter than 3 characters'),
 })
 
-export const ForgotPassword: FC<FormType<FormSchema>> = ({ onSubmit }) => {
+export const CreateNewPassword = ({ onSubmit }: FormType<FormSchema>) => {
   const {
     register,
     handleSubmit,
@@ -29,14 +30,14 @@ export const ForgotPassword: FC<FormType<FormSchema>> = ({ onSubmit }) => {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Typography className="heading" as={'large'}>
-        Forgot your password?
+        Create new password
       </Typography>
-      <Input {...register('email')} error={errors.email?.message} />
+      <Input type={'password'} {...register('password')} error={errors.password?.message} />
       <Typography as={'body2'}>
-        Enter your email address and we will send you further instructions
+        Create new password and we will send you further instructions to email
       </Typography>
       <Button fullWidth={true} type="submit">
-        Send Instructions
+        Create New Password
       </Button>
       <Typography as={'body2'}>Did you remember your password?</Typography>
       <Typography className="signUpLink" as={'link'} to={Routes.SignIn}>

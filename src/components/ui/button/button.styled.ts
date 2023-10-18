@@ -9,14 +9,9 @@ export const ButtonStyled = styled.button<{
 
   return css`
     display: flex;
-    height: 2.25rem;
     align-items: center;
     justify-content: center;
     gap: 0.625rem;
-    padding: 0.375rem 1.75rem;
-    @media (max-width: 1000px) {
-      padding: 0.375rem 1.25rem;
-    }
     border-radius: 0.25rem;
     cursor: pointer;
     outline: none;
@@ -26,6 +21,18 @@ export const ButtonStyled = styled.button<{
     text-decoration: none;
     transition: 0.1s;
     white-space: nowrap;
+    padding: 0.375rem 1.75rem;
+    @media (max-width: 1000px) {
+      padding: 0.375rem 1.25rem;
+    }
+    ${$fullWidth &&
+    css`
+      @media (max-width: 1000px) {
+        padding: 0.375rem 0;
+      }
+      width: 100%;
+      padding: 0.375rem 0;
+    `}
     &:disabled {
       cursor: initial;
     }
@@ -89,10 +96,6 @@ export const ButtonStyled = styled.button<{
       &:disabled {
         color: ${colors.accent_900};
       }
-    `}
-    ${$fullWidth &&
-    css`
-      width: 100%;
     `}
   `
 })

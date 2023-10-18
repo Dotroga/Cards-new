@@ -5,7 +5,7 @@ import { SignIn } from '@/components'
 import { withThemeProvider } from '@/utils/decorators.tsx'
 
 const meta = {
-  title: 'Auth/SignIn',
+  title: 'Auth/Sign in',
   component: SignIn,
   decorators: [withThemeProvider, withRouter],
   tags: ['autodocs'],
