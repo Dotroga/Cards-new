@@ -4,7 +4,7 @@ import { styled } from 'styled-components'
 import img from '@/assets/img/checkEmail.svg'
 import { Button, Card, Typography } from '@/components'
 
-export const CheckEmail = (props: { to: string }) => {
+export const CheckEmail = (props: { to: string; email: string }) => {
   return (
     <Form>
       <Typography className="heading" as={'large'}>
@@ -15,7 +15,7 @@ export const CheckEmail = (props: { to: string }) => {
         We’ve sent an Email with instructions to
       </Typography>
       <Typography as={'body2'} className="email">
-        {'example@mail.com'}
+        {props.email}
       </Typography>
       <Button fullWidth={true} as={Link} to={props.to}>
         Back to Sign In

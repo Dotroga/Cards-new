@@ -17,5 +17,6 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     to: '/Hello',
+    email: 'test@test.com',
   },
 }

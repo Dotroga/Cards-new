@@ -8,6 +8,8 @@ import {
 
 import { Header } from '@/components/Header/Header.tsx'
 import { Unauthorized } from '@/pages/401/unauthorized.tsx'
+import { CheckEmailPage } from '@/pages/auth/check-email/check-email.tsx'
+import { CreateNewPasswordPage } from '@/pages/auth/create-new-password/create-new-password.tsx'
 import { ForgotPasswordPage } from '@/pages/auth/forgot-password/forgot-password-page.tsx'
 import { SignInPage } from '@/pages/auth/sign-in/sign-in.tsx'
 import { SignUpPage } from '@/pages/auth/sign-up/sign-up.tsx'
@@ -31,6 +33,14 @@ const publicRoutes: RouteObject[] = [
   {
     path: Routes.ForgotPassword,
     element: <ForgotPasswordPage />,
+  },
+  {
+    path: Routes.CreateNewPassword,
+    element: <CreateNewPasswordPage />,
+  },
+  {
+    path: Routes.CheckEmail,
+    element: <CheckEmailPage />,
   },
 ]
 
