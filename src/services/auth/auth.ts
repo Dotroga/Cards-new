@@ -38,6 +38,7 @@ export const authApi = createApi({
         url: `auth/logout`,
         method: 'POST',
       }),
+
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         const patchResult = dispatch(
           authApi.util.updateQueryData('me', undefined, () => {

@@ -4,8 +4,9 @@ import { useRecoverPasswordMutation } from '@/services/auth/auth.ts'
 
 export const ForgotPasswordPage = () => {
   const [recoverPassword] = useRecoverPasswordMutation()
-  const url = import.meta.env.VITE_API_URL
+  const url = import.meta.env.VITE_BASE_URL
 
+  debugger
   const onSubmit = (data: ForgotPasswordSchema) => {
     recoverPassword({
       email: data.email,
