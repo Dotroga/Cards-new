@@ -1,3 +1,5 @@
+.env.development
+
 # Logs
 logs
 *.log
@@ -12,7 +14,7 @@ storybook-static
 dist
 dist-ssr
 *.local
-.env.development
+
 
 # Editor directories and files
 .vscode/*
