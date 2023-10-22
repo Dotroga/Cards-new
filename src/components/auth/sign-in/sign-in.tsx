@@ -1,6 +1,5 @@
 import { FC } from 'react'
 
-import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { styled } from 'styled-components'
@@ -12,9 +11,10 @@ import { Routes } from '@/router/path.ts'
 export type LoginFormSchema = z.infer<typeof loginSchema>
 type FormType<T> = {
   onSubmit: (data: T) => void
+  loading?: boolean
 }
 
-export const SignIn: FC<FormType<LoginFormSchema>> = ({ onSubmit }) => {
+export const SignIn: FC<FormType<LoginFormSchema>> = ({ onSubmit, loading }) => {
   const {
     register,
     handleSubmit,
@@ -29,16 +29,20 @@ export const SignIn: FC<FormType<LoginFormSchema>> = ({ onSubmit }) => {
       <Typography className="signIn" as={'large'}>
         Sign In
       </Typography>
-      <DevTool control={control} />
-      <Input {...register('email')} error={errors.email?.message} />
-      <Input {...register('password')} type="password" error={errors.password?.message} />
-      <ControlledCheckbox name="rememberMe" control={control}>
+      <Input {...register('email')} error={errors.email?.message} disabled={loading} />
+      <Input
+        {...register('password')}
+        type="password"
+        error={errors.password?.message}
+        disabled={loading}
+      />
+      <ControlledCheckbox name="rememberMe" control={control} disabled={loading}>
         <Typography as={'body2'}>Remember me</Typography>
       </ControlledCheckbox>
       <Typography as={'link'} className="forgotPassword" to={Routes.ForgotPassword}>
         Forgot Password?
       </Typography>
-      <Button type="submit" fullWidth={true}>
+      <Button type="submit" fullWidth={true} disabled={loading}>
         Sign In
       </Button>
       <Typography className="notAccount" as={'body2'}>{`Don't have an account?`}</Typography>
@@ -48,12 +52,10 @@ export const SignIn: FC<FormType<LoginFormSchema>> = ({ onSubmit }) => {
     </Form>
   )
 }
-
 const Form = styled(Card)`
   align-items: center;
-  width: 420px;
-  height: 528px;
-  padding: 33px 36px 29px 36px;
+  width: 26.25rem;
+  height: 33rem;
   .signIn {
     margin-bottom: 20px;
   }

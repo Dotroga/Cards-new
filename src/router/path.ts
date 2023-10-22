@@ -3,7 +3,7 @@ export enum Routes {
   SignIn = '/sign-in',
   SignUp = '/sign-up',
   ForgotPassword = '/forgot-password',
-  CreateNewPassword = '/create-new-password/:token',
+  ResetPassword = '/reset-password/:token',
   CheckEmail = '/check-email',
   Profile = '/profile',
   Unauthorized = '/401',

@@ -13,11 +13,11 @@ export type User = {
 }
 
 export type SignUpArgs = {
-  html: string
+  html?: string
   password: string
   email: string
-  subject: string
-  sendConfirmationEmail: false
+  subject?: string
+  sendConfirmationEmail?: boolean
 }
 
 export type ResendVerificationEmailArgs = {
