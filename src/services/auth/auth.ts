@@ -19,13 +19,6 @@ export const authApi = createApi({
       },
       invalidatesTags: ['Me'],
     }),
-    recoverPassword: builder.mutation<void, ResendVerificationEmailArgs>({
-      query: body => ({
-        url: 'auth/recover-password',
-        method: 'POST',
-        body: body,
-      }),
-    }),
     signUp: builder.mutation<any, Partial<SignUpArgs>>({
       query: body => ({
         url: `auth/sign-up`,
@@ -33,6 +26,23 @@ export const authApi = createApi({
         body,
       }),
     }),
+    recoverPassword: builder.mutation<void, ResendVerificationEmailArgs>({
+      query: body => ({
+        url: 'auth/recover-password',
+        method: 'POST',
+        body: body,
+      }),
+    }),
+    resetPassword: builder.mutation<void, Pick<LoginArgs, 'password'> & { token: string }>({
+      query: body => ({
+        url: `auth/reset-password/${body.token}`,
+        method: 'POST',
+        body: {
+          password: body.password,
+        },
+      }),
+    }),
+
     logout: builder.mutation<unknown, void>({
       query: () => ({
         url: `auth/logout`,
@@ -62,4 +72,5 @@ export const {
   useRecoverPasswordMutation,
   useSignUpMutation,
   useLogoutMutation,
+  useResetPasswordMutation,
 } = authApi
